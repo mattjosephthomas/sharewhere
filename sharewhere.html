@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShareWhere — UGC for destinations and the businesses that make them</title>
+<meta name="description" content="Find the best visitor photos of your destination, get permission, use them everywhere, then share them with your member businesses. $2,400 USD a year. Switching from CrowdRiff is free.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Figtree:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1A1A1A;--body:#3A3A3A;--muted:#5A5A5A;--paper:#FFFFFF;--sand:#F6F3EA;--line:#ECE7DA;--green:#1F6B4A;--green-dark:#144A33;--hi:#FFE45C;--note:#C2410C}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Figtree',system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--green)}a:hover{color:var(--green-dark)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.display{font-family:'Figtree',sans-serif;font-weight:800;letter-spacing:-1px;line-height:1.08;margin:0}
+.hand{font-family:'Caveat',cursive;font-weight:700;color:var(--note);margin:0}
+.eyebrow{margin:0;font-size:15px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.hl{background:var(--hi);padding:0 .18em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:56px;padding:0 28px;border-radius:999px;text-decoration:none;font-weight:700;font-size:19px}
+.btn-green{background:var(--green);color:#fff}.btn-green:hover{background:var(--green-dark);color:#fff}
+.btn-outline{border:2px solid var(--ink);color:var(--ink)}.btn-outline:hover{background:var(--ink);color:#fff}
+.btn-yellow{background:var(--hi);color:var(--ink)}.btn-yellow:hover{background:#FFD91F;color:var(--ink)}
+.band{background:var(--sand);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+section{scroll-margin-top:20px}
+.pad{padding-top:96px;padding-bottom:96px}
+
+/* nav */
+.nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:18px;padding-bottom:18px}
+.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:'Figtree',sans-serif;font-weight:800;font-size:22px;letter-spacing:-.5px}
+.navlinks{display:flex;flex-wrap:wrap;align-items:center;gap:22px;font-weight:600}
+.navlinks a{color:var(--ink);text-decoration:none}.navlinks a:hover{text-decoration:underline}
+.navlinks .btn{min-height:44px;padding:0 20px;font-size:16px}
+.navlinks a.btn-green,.navlinks a.btn-green:hover{color:#fff;text-decoration:none}
+
+/* hero */
+.hero{display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start;padding-top:40px;padding-bottom:96px}
+.hero-copy{flex:1 1 480px;min-width:0;display:flex;flex-direction:column;gap:20px;padding-top:12px}
+.hero h1{font-size:clamp(42px,5.2vw,70px);line-height:1.02;letter-spacing:-2px;font-weight:900}
+.lede{margin:0;font-size:22px;color:var(--body);max-width:560px}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.price-line{margin:0;font-size:18px;font-weight:600}
+.collage{flex:1 1 420px;min-width:0}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.polaroid{margin:0;background:#fff;padding:10px 10px 12px;border:1px solid #E7E2D6;border-radius:6px;box-shadow:0 10px 24px rgba(26,26,26,.10);display:flex;flex-direction:column;gap:10px}
+.polaroid img{width:100%;object-fit:cover;border-radius:3px}
+.polaroid figcaption,.cap{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px;font-weight:600}
+.ok{display:inline-flex;align-items:center;gap:4px;color:var(--green);font-weight:700;font-size:12px;white-space:nowrap}
+
+/* essay */
+.essay{max-width:720px;margin:0 auto;padding:96px 24px;display:flex;flex-direction:column;gap:22px;font-size:21px;line-height:1.6}
+.essay p{margin:0}
+.essay h2{font-size:clamp(34px,4.4vw,54px);margin-bottom:8px}
+
+/* lists of cards */
+.flex{display:flex;flex-wrap:wrap}
+.problem{flex:1 1 440px;min-width:0;border-top:4px solid var(--ink);padding-top:18px;display:flex;flex-direction:column;gap:10px}
+.problem h3,.step h3{margin:0;font-size:24px;font-weight:700}
+.problem p,.step p{margin:0;font-size:18px;color:var(--body)}
+.steps{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:24px}
+.step{flex:1 1 240px;min-width:0;background:#fff;border:1px solid #E7E2D6;border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:10px}
+.step .n{font-family:'Figtree',sans-serif;font-weight:800;font-size:44px;line-height:1}
+.step.star{border:3px solid var(--ink);padding:26px;box-shadow:6px 6px 0 var(--hi)}
+
+/* step icons */
+.step-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:4px}
+.icon{flex:none;width:68px;height:68px;border-radius:999px;background:var(--hi);color:var(--ink);display:inline-flex;align-items:center;justify-content:center}
+.icon svg{width:36px;height:36px}
+.step .n{color:#5A5A5A;font-size:36px}
+
+/* hero avatar button */
+.btn-avatar{padding-left:8px;gap:12px}
+.mini{width:40px;height:40px;border-radius:999px;object-fit:cover;object-position:50% 30%;border:2px solid var(--hi)}
+
+/* letter */
+.paper-band{background:#FBF3EF;border-top:1px solid #F1E4DD;border-bottom:1px solid #F1E4DD}
+.paper{width:100%;max-width:640px;background:#fff;border:1px solid #E9E2DC;border-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,.04),0 14px 34px rgba(60,40,30,.08);padding:56px 60px;font-size:18px;line-height:1.65;color:#262626}
+.paper p{margin:0 0 18px}
+.signoff{margin-top:28px;display:flex;flex-direction:column;gap:6px}
+.signature-img{display:block;align-self:flex-start;height:72px;width:auto;max-width:260px;object-fit:contain;margin:0 0 10px -6px}
+.signature{font-size:44px;line-height:1;color:var(--ink);transform:rotate(-4deg);transform-origin:left;margin:0 0 6px}
+.byline{display:flex;align-items:center;gap:12px;font-size:15px;line-height:1.35;color:#3A3A3A}
+.byline img{width:44px;height:44px;border-radius:999px;object-fit:cover;object-position:50% 30%}
+@media (max-width:600px){.paper{padding:36px 24px}}
+
+/* price tag */
+.tag-row{display:flex;flex-wrap:wrap;align-items:center;gap:22px;margin:8px 0 4px}
+.tag-wrap{transform:rotate(-4deg);filter:drop-shadow(0 8px 10px rgba(0,0,0,.18))}
+.price-tag{position:relative;display:inline-flex;align-items:center;background:var(--hi);padding:14px 32px 14px 62px;border-radius:0 12px 12px 0;clip-path:polygon(34px 0,100% 0,100% 100%,34px 100%,0 50%)}
+.price-tag .hole{position:absolute;left:28px;top:50%;width:16px;height:16px;margin-top:-8px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 3px #E8C93A}
+.price-tag strong{font-family:'Figtree',sans-serif;font-weight:900;font-size:64px;line-height:1;letter-spacing:-2px;color:var(--ink)}
+
+/* story */
+.story{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:24px}
+.chapter{flex:1 1 240px;min-width:0;background:#fff;border:1px solid #EADBD6;border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:10px}
+.icon.bad{background:#FDE4DF;color:#B42318}
+.when{font-size:14px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#B42318}
+.chapter h3{margin:0;font-size:22px;font-weight:700}
+.chapter p{margin:0;font-size:17px;color:var(--body)}
+
+/* app mock */
+.app{background:#fff;border:2px solid var(--ink);border-radius:14px;overflow:hidden;box-shadow:12px 12px 0 var(--ink);font-size:14px;line-height:1.4}
+.app-chrome{display:flex;align-items:center;gap:14px;padding:10px 14px;background:#EFEBE1;border-bottom:1px solid #DDD6C6}
+.dots{display:flex;gap:6px}.dots i{width:11px;height:11px;border-radius:99px;background:#CFC7B5;display:block}
+.url{flex:1;max-width:440px;margin:0 auto;background:#fff;border:1px solid #DDD6C6;border-radius:8px;padding:5px 12px;color:#5A5A5A;font-size:13px;display:flex;align-items:center;gap:6px}
+.app-body{display:flex}
+.app-side{flex:none;width:210px;background:#FAF8F3;border-right:1px solid #ECE7DA;padding:18px 12px;display:flex;flex-direction:column;gap:4px}
+.app-brand{display:flex;align-items:center;gap:8px;font-weight:800;font-size:16px;margin:0 6px 18px}
+.app-brand img{height:24px;width:auto}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;color:#3A3A3A;font-weight:600;border:1px solid transparent}
+.nav-item.on{background:#fff;color:var(--ink);border-color:#ECE7DA;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.nav-item .count{margin-left:auto;font-size:12px;background:var(--hi);border-radius:99px;padding:1px 8px;color:var(--ink)}
+.app-main{flex:1;min-width:0;padding:22px 26px 26px;display:flex;flex-direction:column;gap:16px}
+.app-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:12px}
+.app-top h3{margin:0;font-size:22px;font-weight:800}.app-top p{margin:2px 0 0;color:#5A5A5A}
+.me{display:flex;align-items:center;gap:8px;font-weight:600}
+.me img{width:32px;height:32px;border-radius:99px;object-fit:cover;object-position:50% 30%}
+.app-tools{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.search{flex:1 1 220px;display:flex;align-items:center;gap:8px;border:1px solid #DDD6C6;border-radius:8px;padding:8px 12px;color:#6A6A6A}
+.chip{border:1px solid #DDD6C6;border-radius:99px;padding:6px 12px;font-weight:600;color:#3A3A3A;white-space:nowrap}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.selbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;background:#EAF3EE;border:1px solid #CFE3D7;border-radius:10px;padding:8px 12px;font-weight:600;color:#1F4D38}
+.selbar .act{display:inline-flex;align-items:center;gap:6px;background:var(--green);color:#fff;border-radius:8px;padding:6px 12px}
+.selbar .ghost{background:transparent;color:#1F4D38;border:1px solid #9CC4AE}
+.app-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.ph{position:relative;display:flex;flex-direction:column;gap:7px;min-width:0}
+.ph img{width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;border-radius:8px}
+.ph.sel img{outline:3px solid var(--green);outline-offset:2px}
+.chk{position:absolute;top:8px;left:8px;width:22px;height:22px;border-radius:6px;background:rgba(255,255,255,.92);box-shadow:0 1px 3px rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center;color:#fff}
+.ph.sel .chk{background:var(--green)}
+.cleared{position:absolute;top:8px;right:8px;display:inline-flex;align-items:center;gap:3px;background:rgba(255,255,255,.94);color:var(--green);font-size:11px;font-weight:700;border-radius:99px;padding:2px 8px}
+.meta{display:flex;justify-content:space-between;gap:6px;font-size:12.5px}.who{font-weight:700}.where{color:#5A5A5A;text-align:right}
+@media (max-width:860px){.app-side{display:none}.app-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* business site embed mock */
+.site-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:16px 24px;border-bottom:1px solid #EEE9DD}
+.site-logo{font-weight:900;font-size:20px;letter-spacing:-.5px}
+.site-nav{display:flex;flex-wrap:wrap;align-items:center;gap:18px;font-weight:600;color:#444}
+.site-btn{background:var(--ink);color:#fff;border-radius:99px;padding:6px 14px}
+.site-body{padding:26px 24px 28px;display:flex;flex-direction:column;gap:6px}
+.site-body h4{margin:0;font-size:26px;font-weight:800;letter-spacing:-.5px}
+.site-sub{margin:0 0 14px;color:#5A5A5A}
+.embed{position:relative;border:2px dashed #8FBFA4;border-radius:12px;padding:20px 14px 12px}
+.embed-label{position:absolute;top:-12px;left:14px;background:var(--green);color:#fff;font-size:12px;font-weight:700;border-radius:99px;padding:2px 10px}
+.embed-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.eg{margin:0;display:flex;flex-direction:column;gap:4px;min-width:0}
+.eg img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:6px}
+.eg figcaption{font-size:11.5px;color:#4A4A4A}
+.powered{margin:10px 0 0;font-size:12px;color:#5A5A5A;text-align:right}
+.code{margin:0;background:var(--ink);color:#F4F1E8;border-radius:10px;padding:14px 16px;font-size:13.5px;line-height:1.5;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+@media (max-width:600px){.embed-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* library mock */
+.library{flex:1 1 560px;min-width:0;background:#fff;border:2px solid var(--ink);border-radius:14px;overflow:hidden;box-shadow:10px 10px 0 var(--ink)}
+.library-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px;border-bottom:1px solid #E7E2D6;background:var(--sand)}
+.library-grid{padding:20px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.library-grid img{width:100%;height:130px;object-fit:cover;border-radius:6px}
+.tile{display:flex;flex-direction:column;gap:6px;min-width:0}
+.tile .credit{font-size:12px;color:#4A4A4A}
+
+/* pricing */
+.pricing{background:var(--green);color:#fff}
+.price-card{flex:1 1 420px;min-width:0;background:#fff;color:var(--ink);border-radius:16px;padding:36px;display:flex;flex-direction:column;gap:18px}
+.big-price{margin:0;display:flex;align-items:baseline;flex-wrap:wrap;gap:10px}
+.big-price strong{font-family:'Figtree',sans-serif;font-weight:900;font-size:72px;line-height:1;letter-spacing:-2px}
+.checks{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;font-size:18px}
+.checks li{display:flex;gap:10px;align-items:flex-start}
+.checks svg{flex:none;margin-top:4px}
+
+/* switch */
+.switch-steps{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:20px}
+.switch-steps li{flex:1 1 220px;min-width:0;display:flex;gap:14px;align-items:flex-start;font-size:18px}
+.switch-steps .dot{flex:none;width:44px;height:44px;border-radius:999px;background:var(--hi);display:inline-flex;align-items:center;justify-content:center;font-family:'Figtree',sans-serif;font-weight:800;font-size:20px}
+.switch-steps span:last-child{padding-top:8px}
+
+/* faq */
+.faq{flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:8px}
+.faq h3{margin:0;font-size:21px}
+.faq p{margin:0;font-size:18px;color:var(--body)}
+
+/* book */
+.book{max-width:1000px;margin:0 auto;padding:96px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:40px}
+.headshot{flex:none;width:200px;height:200px;border-radius:999px;object-fit:cover;object-position:50% 30%;border:6px solid var(--hi)}
+.book-copy{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:16px}
+
+/* close + footer */
+.close{background:var(--ink);color:#fff}
+.close .inner{max-width:900px;margin:0 auto;padding:104px 24px;display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center}
+footer{background:var(--ink);color:#D6D6D6;border-top:1px solid #2E2E2E}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-top:28px;padding-bottom:28px;font-size:15px}
+footer a{color:#D6D6D6}footer a:hover{color:#fff}
+
+@media (max-width:600px){
+  .library-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pad{padding-top:64px;padding-bottom:64px}
+  .essay{padding-top:64px;padding-bottom:64px}
+}
+</style>
+</head>
+<body>
+
+<header style="border-bottom:1px solid var(--line)">
+  <nav class="wrap nav" aria-label="Main">
+    <a class="logo" href="#top">
+      <img src="images/sharewhere-icon.png" alt="" width="56" height="40" style="height:40px;width:auto">
+      ShareWhere
+    </a>
+    <div class="navlinks">
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#switch">Switch from CrowdRiff</a>
+      <a href="#book">Book a call</a>
+      <a class="btn btn-green" href="#switch">Switch for free</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section id="top" class="wrap hero">
+  <div class="hero-copy">
+    <p class="hand" style="font-size:28px">For DMOs, and everyone they market.</p>
+    <h1 class="display">UGC for destinations. And <span class="hl">the businesses</span> that make them.</h1>
+    <p class="lede">Find the best photos of your place. Get permission. Use them everywhere. Then share them with the businesses who earned them.</p>
+    <div class="row">
+      <a class="btn btn-green" href="#switch">Switch for free</a>
+      <a class="btn btn-outline btn-avatar" href="#book"><img class="mini" src="images/matthew.jpg" alt="">Book a call with Matthew</a>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:2px">
+      <p class="price-line">$2,400 USD a year. Switching from CrowdRiff is <span class="hl">free</span>.</p>
+      <p class="hand" style="font-size:24px">↑ yes, the price is right there.</p>
+    </div>
+  </div>
+  <div class="collage">
+    <div class="grid2">
+      <figure class="polaroid" style="transform:rotate(-2deg)"><img src="images/algonquin.jpg" alt="Fall colours in Algonquin Park" style="height:200px"><figcaption>Algonquin Park<span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Yes on file</span></figcaption></figure>
+      <figure class="polaroid" style="transform:rotate(1.5deg)"><img src="images/on-the-bus.jpg" alt="Passengers on the way to the park" style="height:160px"><figcaption>On the way there<span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Yes on file</span></figcaption></figure>
+      <figure class="polaroid" style="transform:rotate(2deg)"><img src="images/strawberries.jpg" alt="A handful of fresh strawberries" style="height:160px"><figcaption>Strawberry season<span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Yes on file</span></figcaption></figure>
+      <figure class="polaroid" style="transform:rotate(-1.5deg)"><img src="images/killarney.jpg" alt="The Crack lookout in Killarney" style="height:200px"><figcaption>Killarney<span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Yes on file</span></figcaption></figure>
+      <figure class="polaroid" style="transform:rotate(-1deg)"><img src="images/stargazing.jpg" alt="Stargazing under a dark sky" style="height:170px"><figcaption>Dark-sky night<span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Yes on file</span></figcaption></figure>
+      <figure class="polaroid" style="transform:rotate(1deg)"><img src="images/lavender.jpg" alt="Rows of lavender in bloom" style="height:170px"><figcaption>Lavender fields<span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Yes on file</span></figcaption></figure>
+    </div>
+    <p class="hand" style="font-size:24px;text-align:right;margin-top:18px">Every one of these has the creator’s yes on file ↑</p>
+  </div>
+</section>
+
+<section class="paper-band" aria-labelledby="problem">
+  <div class="wrap pad" style="display:flex;flex-direction:column;align-items:center;gap:40px">
+    <h2 id="problem" class="display" style="font-size:clamp(34px,4.4vw,54px);text-align:center;max-width:820px">Photos of a place shouldn’t cost a place this much.</h2>
+    <article class="paper">
+      <p>Hey there—</p>
+      <p>Here’s something that bugs me.</p>
+      <p>Every day, visitors post thousands of beautiful photos of your destination. For free. Because they had a great time.</p>
+      <p>Then a DMO pays a software company <span class="hl">$10,000 or more a year</span> to ask permission to use them.</p>
+      <p><strong>Sit with that for a second.</strong> The photos are free. The permission is a comment reply. The bill is five figures.</p>
+      <p>That money comes from somewhere. Usually from the same budget meant to promote the places visitors fell in love with. The bakery. The outfitter. The inn with the good porch.</p>
+      <p>And here’s the worse part. Those businesses rarely see the photos. The library sits with the DMO. The galleries sit on the DMO’s website. Meanwhile the outfitter is still shooting on a cracked phone or paying for stock.</p>
+      <p>That’s backwards. A destination isn’t a website. It’s a few hundred businesses doing good work. The photos people take of those businesses should help those businesses.</p>
+      <p>So we built ShareWhere. It does the job for a fraction of the price, and it puts the photos where they do the most good.</p>
+      <div class="signoff">
+        <img class="signature-img" src="images/signature.png" alt="Matthew’s signature" width="211" height="72">
+        <div class="byline"><img src="images/matthew.jpg" alt=""><span><strong>Matthew Thomas</strong><br>Founder, ShareWhere</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="wrap pad" aria-labelledby="wrong" style="display:flex;flex-direction:column;gap:40px">
+  <div style="display:flex;flex-direction:column;gap:12px;max-width:760px">
+    <h2 id="wrong" class="display" style="font-size:clamp(32px,4vw,48px)">What’s wrong with the way it works now</h2>
+    <p style="margin:0;font-size:20px;color:var(--body)">If you work at a DMO, you’ve probably lived some version of this.</p>
+  </div>
+  <ol class="story">
+    <li class="chapter"><div class="step-top"><span class="icon bad" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></span></div><span class="when">First</span><h3>You need good photos.</h3><p>Your website needs real visitor photos, not stock. Someone says everyone uses CrowdRiff. It’s built for big teams and you’re one or two people, but you go find out what it costs.</p></li>
+    <li class="chapter"><div class="step-top"><span class="icon bad" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M10.6 5.1A10 10 0 0 1 12 5c5 0 9 4.5 10 7a14 14 0 0 1-3 4.2"/><path d="M6.6 6.6C4.4 8 2.8 10.2 2 12c1 2.5 5 7 10 7 1.7 0 3.3-.5 4.6-1.3"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg></span></div><span class="when">Then</span><h3>The price is a secret.</h3><p>There’s no price on the website. You book a demo, then wait for a quote. For many DMOs, it’s five figures, for photos visitors posted for free. You sign anyway, because what else is there?</p></li>
+    <li class="chapter"><div class="step-top"><span class="icon bad" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9.6c-.5-1.2-1.7-2-3-2-1.7 0-3 1-3 2.3 0 3 6 1.7 6 4.7 0 1.3-1.3 2.4-3 2.4-1.4 0-2.6-.8-3-2"/><path d="M12 5.6v2M12 16.4v2"/></svg></span></div><span class="when">Every year</span><h3>It eats your budget.</h3><p>Each renewal gobbles up a big chunk of your marketing budget. That’s money that could have gone into promoting your member businesses. And leaving means starting over, so nobody leaves.</p></li>
+    <li class="chapter"><div class="step-top"><span class="icon bad" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l2-6h14l2 6"/><path d="M3 10h18"/><path d="M4.5 10v10h15V10"/><path d="M10 20v-5h4v5"/></svg></span></div><span class="when">Meanwhile</span><h3>The businesses get nothing.</h3><p>Down the street, the outfitter in half those photos is still shooting on a cracked phone. Your best marketing serves one organization instead of the hundreds that make this place worth visiting.</p></li>
+  </ol>
+  <p class="hand" style="font-size:32px">There’s a better way. ↓</p>
+</section>
+
+<section id="how" class="band" aria-labelledby="howh">
+  <div class="wrap pad" style="display:flex;flex-direction:column;gap:48px">
+    <div style="display:flex;flex-direction:column;gap:12px;max-width:760px">
+      <p class="eyebrow">How it works</p>
+      <h2 id="howh" class="display" style="font-size:clamp(32px,4vw,48px)">Four steps to become a DMO hero.</h2>
+    </div>
+    <ol class="steps">
+      <li class="step"><div class="step-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.4 15.4L21 21"/><path d="M7.8 8.6a3.4 3.4 0 0 1 2.7-1.6"/></svg></span><span class="n">1</span></div><h3>Find.</h3><p>We pull public posts tagged at your destination. AI sorts them by place, season and activity, so the good stuff rises to the top.</p></li>
+      <li class="step"><div class="step-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.2 7.5L3 21l2-5.6A8.4 8.4 0 1 1 21 11.5z"/><path d="M9.6 9a2.6 2.6 0 0 1 5 .9c0 1.7-2.6 2.3-2.6 3.6"/><path d="M12 16.6h.01"/></svg></span><span class="n">2</span></div><h3>Ask.</h3><p>One click sends a friendly permission request. The creator replies yes. We keep the record: who agreed, when, and to what.</p></li>
+      <li class="step"><div class="step-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M7.5 12.4l3 3 6-6.2"/></svg></span><span class="n">3</span></div><h3>Use.</h3><p>Drop galleries on your website. Download for social, print and ads. Every photo carries its creator’s credit.</p></li>
+      <li class="step star"><div class="step-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-8"/><path d="M12 14V3.5"/><path d="M12 14L3.5 7.5"/><path d="M12 14l8.5-6.5"/><path d="M9 6.5l3-3 3 3"/><path d="M7.8 7.1l-4.3.4.9 4.2"/><path d="M16.2 7.1l4.3.4-.9 4.2"/></svg></span><span class="n">4</span></div><h3>Share.</h3><p>The permission covers your member businesses too. The inn gets the photos of the inn. The outfitter gets the paddlers. The bakery gets the croissant someone couldn’t stop photographing. Each one gets a gallery for its own website, too.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="wrap pad" aria-labelledby="library" style="display:flex;flex-direction:column;gap:44px">
+  <div class="flex" style="gap:24px 56px;align-items:flex-start">
+    <h2 id="library" class="display" style="flex:1 1 380px;min-width:0;font-size:clamp(32px,4vw,46px)">Every business gets its own library.</h2>
+    <div style="flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:14px">
+      <p style="margin:0;font-size:19px;color:var(--body)">A simple page with the cleared photos of their place, ready to post. No training session. They don’t pay a cent. You do, and it’s still a fraction of what you pay now.</p>
+      <p style="margin:0;font-size:19px;color:var(--body)"><strong style="color:var(--ink)">It makes the DMO look good where it counts.</strong> Your members see the value of their membership every time they open their library. Their profile goes up. So does the destination’s.</p>
+    </div>
+  </div>
+  <div class="app" role="img" aria-label="A member business’s photo library in ShareWhere, showing eight cleared visitor photos with creator credits">
+    <div class="app-chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url"><svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>app.sharewhere.co/library</span></div>
+    <div class="app-body">
+      <div class="app-side">
+        <span class="app-brand"><img src="images/sharewhere-icon.png" alt="">ShareWhere</span>
+        <span class="nav-item on"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Library<span class=count>8</span></span><span class="nav-item"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Collections</span><span class="nav-item"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg>New this week<span class=count>3</span></span><span class="nav-item"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Credits</span><span class="nav-item"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>Settings</span>
+      </div>
+      <div class="app-main">
+        <div class="app-top">
+          <div><h3>Parkbus</h3><p>Your photo library · 8 photos cleared for you to use</p></div>
+          <span class="me"><img src="images/matthew.jpg" alt="">Matthew T.</span>
+        </div>
+        <div class="app-tools">
+          <span class="search"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>Search photos, places or creators</span>
+          <span class="chip on">All</span><span class="chip">Summer</span><span class="chip">Fall</span><span class="chip">Overnight trips</span>
+        </div>
+        <div class="selbar"><span>2 selected</span><span class="act"><svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Download</span><span class="act ghost">Copy credits</span></div>
+        <div class="app-grid">
+          <div class="ph sel"><img src="images/charleston-lake.jpg" alt=""><span class="chk"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="cleared"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Cleared</span><div class="meta"><span class="who">Priya S.</span><span class="where">Charleston Lake</span></div></div>
+          <div class="ph sel"><img src="images/golden-ears.jpg" alt=""><span class="chk"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="cleared"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Cleared</span><div class="meta"><span class="who">Dan M.</span><span class="where">Golden Ears</span></div></div>
+          <div class="ph"><img src="images/georgian-bay.jpg" alt=""><span class="chk"></span><span class="cleared"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Cleared</span><div class="meta"><span class="who">Aisha K.</span><span class="where">Georgian Bay</span></div></div>
+          <div class="ph"><img src="images/pinery.jpg" alt=""><span class="chk"></span><span class="cleared"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Cleared</span><div class="meta"><span class="who">Tom R.</span><span class="where">Pinery</span></div></div>
+          <div class="ph"><img src="images/glamping.jpg" alt=""><span class="chk"></span><span class="cleared"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Cleared</span><div class="meta"><span class="who">Lena B.</span><span class="where">Overnight trip</span></div></div>
+          <div class="ph"><img src="images/stargazing.jpg" alt=""><span class="chk"></span><span class="cleared"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Cleared</span><div class="meta"><span class="who">Marc D.</span><span class="where">Dark-sky night</span></div></div>
+          <div class="ph"><img src="images/dinosaur.jpg" alt=""><span class="chk"></span><span class="cleared"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Cleared</span><div class="meta"><span class="who">Jo W.</span><span class="where">Dinosaur Park</span></div></div>
+          <div class="ph"><img src="images/algonquin.jpg" alt=""><span class="chk"></span><span class="cleared"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Cleared</span><div class="meta"><span class="who">Sam P.</span><span class="where">Algonquin</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="wrap pad" aria-labelledby="embedh" style="display:flex;flex-wrap:wrap;gap:56px;align-items:center;padding-top:24px">
+  <div class="app" role="img" aria-label="A member business’s own website with a ShareWhere photo gallery embedded on it" style="flex:1 1 600px;min-width:0">
+    <div class="app-chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url"><svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>parkbus.ca/photos</span></div>
+    <div class="site-head"><span class="site-logo">Parkbus</span><span class="site-nav"><span>Trips</span><span>Destinations</span><span>About</span><span class="site-btn">Book a trip</span></span></div>
+    <div class="site-body">
+      <h4>Real trips, real photos</h4>
+      <p class="site-sub">Shared by people who rode with us.</p>
+      <div class="embed">
+        <span class="embed-label">ShareWhere gallery</span>
+        <div class="embed-grid"><figure class="eg"><img src="images/on-the-bus.jpg" alt=""><figcaption>Priya S.</figcaption></figure><figure class="eg"><img src="images/golden-ears.jpg" alt=""><figcaption>Dan M.</figcaption></figure><figure class="eg"><img src="images/stargazing.jpg" alt=""><figcaption>Marc D.</figcaption></figure><figure class="eg"><img src="images/glamping.jpg" alt=""><figcaption>Lena B.</figcaption></figure><figure class="eg"><img src="images/charleston-lake.jpg" alt=""><figcaption>Aisha K.</figcaption></figure><figure class="eg"><img src="images/georgian-bay.jpg" alt=""><figcaption>Tom R.</figcaption></figure><figure class="eg"><img src="images/algonquin.jpg" alt=""><figcaption>Sam P.</figcaption></figure><figure class="eg"><img src="images/pinery.jpg" alt=""><figcaption>Jo W.</figcaption></figure></div>
+        <p class="powered">Every photo credited to its creator · Gallery by ShareWhere</p>
+      </div>
+    </div>
+  </div>
+  <div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:18px">
+    <p class="hand" style="font-size:26px">And here’s the bit they’ll love…</p>
+    <h2 id="embedh" class="display" style="font-size:clamp(32px,4vw,46px)">A gallery for their website, too.</h2>
+    <p style="margin:0;font-size:19px;color:var(--body)">You get photo galleries for your website. So does every member business. Each one gets a gallery of its own cleared photos to drop on its website with one line of code.</p>
+    <p style="margin:0;font-size:19px;color:var(--body)">It fills up as new photos come in, and every photo carries its creator’s credit. They can still download any photo for social, email or print.</p>
+    <pre class="code"><code>&lt;script src="https://sharewhere.co/embed.js"
+  data-library="parkbus"&gt;&lt;/script&gt;</code></pre>
+  </div>
+</section>
+
+<section id="pricing" class="pricing" aria-labelledby="priceh">
+  <div class="wrap pad flex" style="gap:48px;align-items:center">
+    <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:16px">
+      <h2 id="priceh" class="display" style="font-size:clamp(32px,4vw,48px)">One price. Right here on the website. Imagine that.</h2>
+      <p style="margin:0;font-size:19px;color:#E6F0EA">No demo required to find out what it costs.</p>
+    </div>
+    <div class="price-card">
+      <div class="tag-row"><div class="tag-wrap"><div class="price-tag"><span class="hole" aria-hidden="true"></span><strong>$2,400</strong></div></div><span style="font-size:18px;font-weight:600;line-height:1.3">USD a year,<br>per destination</span></div>
+      <p style="margin:0;font-size:16px;color:var(--body)">Paying $10,000 or more now? That’s at least $7,600 a year back in your budget.</p>
+      <ul class="checks">
+        <li><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#1F6B4A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Find, ask, use: the whole permission workflow</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#1F6B4A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Libraries for your member businesses, included</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#1F6B4A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Website galleries for you and every member business</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#1F6B4A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>A free move from CrowdRiff</li>
+      </ul>
+      <a class="btn btn-yellow" href="#switch">Switch for free</a>
+      <p class="hand" style="font-size:26px">That’s it. That’s the price.</p>
+    </div>
+  </div>
+</section>
+
+<section id="switch" class="wrap pad" aria-labelledby="switchh" style="display:flex;flex-direction:column;gap:40px">
+  <div style="display:flex;flex-direction:column;gap:14px;max-width:760px">
+    <h2 id="switchh" class="display" style="font-size:clamp(32px,4vw,48px)">Switch from CrowdRiff for <span class="hl">free</span>.</h2>
+    <p style="margin:0;font-size:20px;color:var(--body)">We do the moving. You don’t lose a single yes you’ve already earned.</p>
+  </div>
+  <ol class="switch-steps">
+    <li><span class="dot">1</span><span>Tell us when your current contract ends.</span></li>
+    <li><span class="dot">2</span><span>We move your library: photos, credits and permission records.</span></li>
+    <li><span class="dot">3</span><span>We rebuild your website galleries.</span></li>
+    <li><span class="dot">4</span><span>You’re moved before your renewal date.</span></li>
+  </ol>
+</section>
+
+<section class="band" aria-labelledby="faqh" style="border-bottom:0">
+  <div class="wrap pad" style="display:flex;flex-direction:column;gap:36px">
+    <h2 id="faqh" class="display" style="font-size:clamp(30px,3.6vw,42px)">Questions people ask</h2>
+    <div class="flex" style="gap:32px 48px">
+      <div class="faq"><h3>Is it legal to use photos from Instagram?</h3><p>Only with permission. That’s the whole point. Every photo in ShareWhere has the creator’s yes on file.</p></div>
+      <div class="faq"><h3>What do creators get?</h3><p>Credit and a link, every time their photo is used, by you or by a business.</p></div>
+      <div class="faq"><h3>Why is it so cheap?</h3><p>It isn’t cheap. The other way is expensive. Running this doesn’t cost $10,000 a year, so we don’t charge it.</p></div>
+      <div class="faq"><h3>Who’s behind this?</h3><p>People who have worked in Canadian tourism for more than a decade, and got tired of watching good marketing money go to software instead of places.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="book" class="book" aria-labelledby="bookh">
+  <img class="headshot" src="images/matthew.jpg" alt="Matthew">
+  <div class="book-copy">
+    <p class="hand" style="font-size:26px">Rather see it first?</p>
+    <h2 id="bookh" class="display" style="font-size:clamp(30px,3.6vw,44px)">Book a call with Matthew to see it.</h2>
+    <p style="margin:0;font-size:19px;color:var(--body)">He’ll walk you through ShareWhere and answer your questions. No pitch deck, no pressure.</p>
+    <!-- Replace # with your booking link (Calendly, Cal.com, etc.) -->
+    <a class="btn btn-green" href="#" style="align-self:flex-start">Book a call with Matthew</a>
+  </div>
+</section>
+
+<section class="close" aria-labelledby="closeh">
+  <div class="inner">
+    <h2 id="closeh" class="display" style="font-size:clamp(36px,5vw,64px);line-height:1.05">Stop paying five figures for free photos.</h2>
+    <a class="btn btn-yellow" href="#switch" style="min-height:60px;font-size:20px">Switch for free</a>
+    <p class="hand" style="font-size:28px;color:var(--hi)">We’ll do the moving.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span style="display:inline-flex;align-items:center;gap:10px;font-family:'Figtree',sans-serif;font-weight:800;color:#fff;font-size:18px"><img src="images/sharewhere-icon.png" alt="" width="45" height="32" style="height:32px;width:auto">ShareWhere</span>
+    <div class="flex" style="gap:20px">
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#switch">Switch from CrowdRiff</a>
+      <a href="#book">Book a call</a>
+      <span>© 2026 ShareWhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
