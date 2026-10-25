@@ -197,7 +197,71 @@ footer a{color:#D6D6D6}footer a:hover{color:#fff}
   .pad{padding-top:64px;padding-bottom:64px}
   .essay{padding-top:64px;padding-bottom:64px}
 }
+
+/* sticky header */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.88);-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);transition:box-shadow .3s ease}
+header.scrolled{box-shadow:0 6px 24px rgba(26,26,26,.07)}
+section{scroll-margin-top:84px}
+
+/* micro-interactions */
+.btn{transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease,color .2s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(26,26,26,.14)}
+.btn:active{transform:translateY(0);box-shadow:none}
+.polaroid{transition:translate .35s cubic-bezier(.2,.8,.2,1),scale .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease}
+.polaroid:hover{translate:0 -8px;scale:1.03;box-shadow:0 20px 38px rgba(26,26,26,.18)}
+.ph img,.eg img{transition:scale .4s ease,filter .4s ease}
+.ph:hover img,.eg:hover img{scale:1.03}
+
+/* hero entrance */
+@keyframes swFadeUp{from{opacity:0;translate:0 18px}to{opacity:1;translate:0 0}}
+@keyframes swDrop{from{opacity:0;translate:0 -28px;scale:1.06}to{opacity:1;translate:0 0;scale:1}}
+@keyframes swHighlight{to{background-size:100% 100%}}
+.js-anim .hero-copy>*{animation:swFadeUp .8s cubic-bezier(.2,.7,.2,1) backwards}
+.js-anim .hero-copy>:nth-child(1){animation-delay:.05s}
+.js-anim .hero-copy>:nth-child(2){animation-delay:.15s}
+.js-anim .hero-copy>:nth-child(3){animation-delay:.3s}
+.js-anim .hero-copy>:nth-child(4){animation-delay:.45s}
+.js-anim .hero-copy>:nth-child(5){animation-delay:.6s}
+.js-anim .hero h1 .hl{background:linear-gradient(var(--hi),var(--hi)) no-repeat 0 0/0% 100%;animation:swHighlight .9s cubic-bezier(.6,0,.2,1) .75s forwards}
+.js-anim .polaroid{animation:swDrop .9s cubic-bezier(.2,.9,.25,1.12) backwards}
+.js-anim .grid2>.polaroid:nth-child(1){animation-delay:.25s}
+.js-anim .grid2>.polaroid:nth-child(2){animation-delay:.35s}
+.js-anim .grid2>.polaroid:nth-child(3){animation-delay:.45s}
+.js-anim .grid2>.polaroid:nth-child(4){animation-delay:.55s}
+.js-anim .grid2>.polaroid:nth-child(5){animation-delay:.65s}
+.js-anim .grid2>.polaroid:nth-child(6){animation-delay:.75s}
+
+/* scroll reveals */
+.js-anim .rv{opacity:0;translate:0 26px;transition:opacity .75s cubic-bezier(.2,.7,.2,1),translate .75s cubic-bezier(.2,.7,.2,1)}
+.js-anim .rv.in{opacity:1;translate:0 0}
+.js-anim .step.rv .icon,.js-anim .chapter.rv .icon{scale:.5;opacity:0;transition:scale .55s cubic-bezier(.3,1.7,.5,1) .2s,opacity .3s ease .2s}
+.js-anim .step.rv.in .icon,.js-anim .chapter.rv.in .icon{scale:1;opacity:1}
+.js-anim .signature-img.rv{opacity:1;translate:none;clip-path:inset(0 100% 0 0);transition:clip-path 1.6s cubic-bezier(.6,.1,.3,1) .2s}
+.js-anim .signature-img.rv.in{clip-path:inset(0 0 0 0)}
+@keyframes swSwing{0%{rotate:-16deg}55%{rotate:5deg}80%{rotate:-2deg}100%{rotate:0deg}}
+.js-anim .tag-wrap.rv.in{animation:swSwing 1.1s cubic-bezier(.3,.7,.3,1) .15s backwards;transform-origin:8% 50%}
+@keyframes swBob{0%,100%{translate:0 0}50%{translate:0 5px}}
+.story+.hand{animation:swBob 2.4s ease-in-out infinite}
+
+/* mobile header + hero */
+@media (max-width:760px){
+  .nav{flex-wrap:nowrap;padding-top:12px;padding-bottom:12px}
+  .navlinks a:not(.btn){display:none}
+  .navlinks .btn{min-height:42px;padding:0 16px;font-size:15px}
+  .logo{font-size:20px;gap:8px}
+  .logo img{height:32px!important}
+  .hero{padding-top:28px;gap:44px}
+  .hero-copy{gap:16px;padding-top:0}
+  .hero .hand{font-size:21px!important}
+  .hero h1{font-size:40px;letter-spacing:-1.2px}
+  .lede{font-size:19px}
+  .hero .row{flex-direction:column;align-items:stretch}
+  .hero .row .btn{width:100%}
+  .price-line{font-size:17px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
+<script>if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window)document.documentElement.classList.add('js-anim')</script>
 </head>
 <body>
 
@@ -437,5 +501,27 @@ footer a{color:#D6D6D6}footer a:hover{color:#fff}
   </div>
 </footer>
 
+<script>
+(function(){
+  var h=document.querySelector('header');
+  function onScroll(){h.classList.toggle('scrolled',window.scrollY>8)}
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  if(!document.documentElement.classList.contains('js-anim'))return;
+  var sel='main h2, .essay p, .paper, .problem, .chapter, .step, .app, .price-card, .tag-wrap, .switch-steps li, .faq, .headshot, .book-copy, .close .inner > *, .signature-img, .story + .hand';
+  var seen=[];
+  document.querySelectorAll(sel).forEach(function(el){
+    if(el.closest('.hero')||seen.indexOf(el)>-1)return;
+    if(el.matches('.story + .hand'))return;
+    seen.push(el);el.classList.add('rv');
+    if(!el.classList.contains('signature-img')){
+      var i=0,p=el.previousElementSibling;
+      while(p){if(p.classList.contains('rv'))i++;p=p.previousElementSibling}
+      el.style.transitionDelay=(Math.min(i,5)*90)+'ms';
+    }
+  });
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0,rootMargin:'0px 0px -12% 0px'});
+  seen.forEach(function(el){io.observe(el)});
+})();
+</script>
 </body>
 </html>
