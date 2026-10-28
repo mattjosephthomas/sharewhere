@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Log in · ShareWhere</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="icon" href="images/sharewhere-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:56px 20px 80px">
+<a class="brand" href="../"><img src="images/sharewhere-icon.png" alt="">ShareWhere</a>
+<main style="width:100%;max-width:420px;margin-top:36px">
+<div class="card" style="padding:32px">
+<h1 style="margin:0;font-size:26px;letter-spacing:-.02em">Log in</h1>
+<p class="muted" style="margin:6px 0 22px;font-size:15px">For destination staff and member businesses.</p>
+<form style="display:flex;flex-direction:column;gap:16px" onsubmit="return false">
+<div><label for="e">Email</label><input id="e" class="field" type="email" placeholder="you@yourdestination.ca" autocomplete="username"></div>
+<div><div style="display:flex;justify-content:space-between"><label for="p">Password</label><a href="mailto:matthew@poweredbytourism.com?subject=ShareWhere%20password" style="font-size:13px;font-weight:600">Forgot it?</a></div><input id="p" class="field" type="password" placeholder="••••••••••" autocomplete="current-password"></div>
+<a class="btn g" href="index.html">Log in</a>
+</form>
+</div>
+<div style="margin-top:18px;background:var(--hi);border-radius:14px;padding:20px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap"><div style="flex:1 1 180px"><b>No account? Try it out.</b><p style="margin:3px 0 0;font-size:14px;color:#3D3932">Poke around a sample destination. Nothing is saved.</p></div><a class="btn g" href="index.html">Open the demo →</a></div>
+<p class="muted" style="margin:24px 0 0;font-size:13px;text-align:center;line-height:1.6">Member business invited by your destination? Use the link in your email.<br>Questions: <a href="mailto:matthew@poweredbytourism.com">matthew@poweredbytourism.com</a></p>
+</main></div>
+</body>
+</html>
