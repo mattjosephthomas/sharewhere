@@ -13,7 +13,7 @@
 <div class="shell">
 <aside class="side">
 <a class="brand" href="index.html"><img src="images/sharewhere-icon.png" alt="">ShareWhere</a>
-<a class="nav " href="index.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>Find<span class="n">12</span></a>
+<a class="nav " href="index.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>Find<span class="n">13</span></a>
 <a class="nav on" href="library.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Library<span class="n">23</span></a>
 <a class="nav " href="galleries.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="15" rx="2"/><path d="M3 8h18"/><path d="M10 12l-2 2 2 2M14 12l2 2-2 2"/></svg>Galleries</a>
 <a class="nav " href="partners.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 9.5L5.5 4h13l2 5.5"/><path d="M5 12v8h14v-8"/><path d="M10 20v-4.5h4V20"/></svg>Partners</a>
@@ -21,11 +21,11 @@
 <div class="dest"><img src="images/gv-logo.png" alt="Visit Grand Valley"><span class="muted">Visit Grand Valley</span></div>
 </aside>
 <main class="main"><div class="wrap">
-<div class="top"><div><h1>Library</h1><p>1,486 photos with a yes on file · 23 new this week</p></div><div class="who"><span>JL</span>Jess L.</div></div>
+<div class="top"><div><h1>Library</h1><p>1,486 photos and 64 videos with a yes on file · 23 new this week</p></div><div class="who"><span>JL</span>Jess L.</div></div>
 
 <div class="bar">
 <div class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A8378" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input placeholder="Search photos, places or creators" aria-label="Search photos"></div>
-<div class="chips"><button class="chip on">All</button><button class="chip">Summer</button><button class="chip">Fall</button><button class="chip">Paddling</button><button class="chip">Farms and food</button><button class="chip">Main streets</button><button class="chip">Families</button></div>
+<div class="chips"><button class="chip on">All</button><button class="chip">Photos</button><button class="chip">Video</button><button class="chip">Summer</button><button class="chip">Fall</button><button class="chip">Paddling</button><button class="chip">Farms and food</button><button class="chip">Main streets</button><button class="chip">Families</button></div>
 </div>
 <div class="chips" style="margin:-6px 0 18px"><button class="chip" style="min-height:34px;font-size:13px">Cleared for partners <span style="opacity:.7;margin-left:6px">1,368</span></button><button class="chip" style="min-height:34px;font-size:13px">DMO only <span style="opacity:.7;margin-left:6px">118</span></button><button class="chip" style="min-height:34px;font-size:13px">Withdrawn <span style="opacity:.7;margin-left:6px">6</span></button><button class="chip" style="min-height:34px;font-size:13px">Needs tags <span style="opacity:.7;margin-left:6px">41</span></button></div>
 
@@ -36,7 +36,7 @@
 <div class="grid">
 <sc-for list="{{photos}}" as="p">
 <div class="{{p.cls}}">
-<div class="im" onclick="{{p.toggle}}" style="cursor:pointer"><img data-src="{{p.src}}" alt="{{p.alt}}"><span class="cb"><sc-if value="{{p.on}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></sc-if></span><span class="{{p.pillCls}}">{{p.status}}</span></div>
+<div class="im" onclick="{{p.toggle}}" style="cursor:pointer;aspect-ratio:{{p.ar}}"><img data-src="{{p.src}}" alt="{{p.alt}}"><sc-if value="{{p.isVideo}}"><span class="play" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12-7.5z"/></svg></span><span class="src-tag">{{p.srcName}} · {{p.len}}</span></sc-if><span class="cb"><sc-if value="{{p.on}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></sc-if></span><span class="{{p.pillCls}}">{{p.status}}</span></div>
 <a class="cap" href="photo.html" style="text-decoration:none;color:inherit"><b>{{p.credit}}</b><span>{{p.place}}</span></a>
 </div>
 </sc-for>
@@ -50,8 +50,8 @@ class Component extends DCLogic {
   renderVals(){
     const sel=this.state.sel;
     const G=['✓ Cleared','pill ok'],A=['DMO only','pill amber'];
-    const rows=[['canoe.jpg','Two people paddling a red canoe','@maya.outside','Falls Gorge',G],['canoe-lake.jpg','Red canoe on a still lake','@maya.outside','Falls Gorge',G],['algonquin.jpg','Lake and forest at dusk','@maya.outside','Kettle Lake',G],['tasting.jpg','Pouring a cider flight','@sipwithsam','Two Rivers Cidery',G],['orchard.jpg','Apple orchard rows','@orchardhopper','Hilltop Orchards',G],['river-town.jpg','Stone buildings over the river','@weekend.wanders','Mill Street',A],['market.jpg','Farm stand produce','@localbasket','Lantern Farm Market',G],['deck.jpg','Muskoka chairs on a deck','@cottagehours','The Millrace Inn',G],['bikes.jpg','Group with bikes','@spokesandsnacks','Rail Trail',A],['boardwalk.jpg','Boardwalk from above','@dronedan.ca','Lakeshore',G],['apple-group.jpg','Group apple picking','@orchardhopper','Hilltop Orchards',G],['marina.jpg','Marina with sailboats','@harbourlight','Port Grand',A]];
-    const photos=rows.map((r,i)=>{const on=!!sel[i];return{src:'images/'+r[0],alt:r[1],credit:r[2],place:r[3],status:r[4][0],pillCls:r[4][1],on,cls:on?'ph is-sel':'ph',toggle:()=>this.setState({sel:Object.assign({},sel,{[i]:!on})})};});
+    const rows=[['canoe.jpg','Two people paddling a red canoe','@maya.outside','Falls Gorge',G],['canoe-lake.jpg','Red canoe on a still lake','@maya.outside','Falls Gorge',G],['algonquin.jpg','Lake and forest at dusk','@maya.outside','Kettle Lake',G],['tasting.jpg','Pouring a cider flight','@sipwithsam','Two Rivers Cidery',G],['orchard.jpg','Apple orchard rows','@orchardhopper','Hilltop Orchards',G],['river-town.jpg','Stone buildings over the river','@weekend.wanders','Mill Street',A],['market.jpg','Farm stand produce','@localbasket','Lantern Farm Market',G],['deck.jpg','Muskoka chairs on a deck','@cottagehours','The Millrace Inn',G],['bikes.jpg','Group with bikes','@spokesandsnacks','Rail Trail',A],['boardwalk.jpg','Boardwalk from above','@dronedan.ca','Lakeshore',G],['apple-group.jpg','Group apple picking','@orchardhopper','Hilltop Orchards',G],['marina.jpg','Marina with sailboats','@harbourlight','Port Grand',A],['flowerpot.jpg','Paddling past the sea stack','@paddleandpine','Flowerpot Bay',G,'TikTok','0:21'],['boardwalk.jpg','Drone pass over the boardwalk','@dronedan.ca','Lakeshore',G,'Reels','0:14'],['selfie-lake.jpg','Group hike to the lookout','@lena.on.trails','Kettle Lake',G,'TikTok','0:33'],['tasting.jpg','Cider flight at Two Rivers','@sipwithsam','Two Rivers Cidery',A,'TikTok','0:18']];
+    const photos=rows.map((r,i)=>{const on=!!sel[i];const isVideo=!!r[5];return{src:'images/'+r[0],alt:r[1],credit:r[2],place:r[3],status:r[4][0],pillCls:r[4][1],on,isVideo,srcName:r[5]||'',len:r[6]||'',ar:isVideo?'9/14':'4/3',cls:on?'ph is-sel':'ph',toggle:()=>this.setState({sel:Object.assign({},sel,{[i]:!on})})};});
     const n=Object.keys(sel).filter(k=>sel[k]).length;
     return{photos,hasSel:n>0,selLabel:n+' selected'};
   }
