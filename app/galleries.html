@@ -27,61 +27,59 @@
 <div style="flex:0 1 300px;min-width:240px">
 <button class="btn g" style="width:100%;margin-bottom:14px">New gallery</button>
 <div class="card">
-<a class="row" href="galleries.html" style="text-decoration:none;color:inherit;background:var(--sand)"><div class="t"><b>Watch: Grand Valley <span class="tag y" style="margin-left:4px">Video</span></b><span>Draft · 8 clips</span></div></a>
-<a class="row" href="galleries.html" style="text-decoration:none;color:inherit"><div class="t"><b>Family friendly</b><span>Draft · 8 photos</span></div></a>
-<a class="row" href="galleries.html" style="text-decoration:none;color:inherit"><div class="t"><b>Fall colours</b><span>Live on 4 sites · 42 photos</span></div></a>
-<a class="row" href="galleries.html" style="text-decoration:none;color:inherit"><div class="t"><b>Paddle season</b><span>Live on 2 sites · 27</span></div></a>
-<a class="row" href="galleries.html" style="text-decoration:none;color:inherit"><div class="t"><b>Farms and food</b><span>Live on 6 sites · 31</span></div></a>
-<a class="row" href="galleries.html" style="text-decoration:none;color:inherit"><div class="t"><b>Homepage</b><span>visitgrandvalley.ca · 60</span></div></a>
+<sc-for list="{{galleries}}" as="g">
+<a class="row" href="#" onclick="{{g.pick}}" style="text-decoration:none;color:inherit;background:{{g.bg}}"><div class="t"><b>{{g.name}} <sc-if value="{{g.isVideo}}"><span class="tag y" style="margin-left:4px">Video</span></sc-if><sc-if value="{{g.isMixed}}"><span class="tag" style="margin-left:4px">Mixed</span></sc-if></b><span>{{g.sub}}</span></div></a>
+</sc-for>
 </div>
 </div>
 
 <div style="flex:1 1 520px;min-width:0">
-<div class="bar"><h2 style="font-size:22px">Watch: Grand Valley <span class="tag amber" style="vertical-align:middle;margin-left:6px">Draft</span></h2><div style="margin-left:auto;display:flex;gap:8px"><button class="{{cBuild}}" onclick="{{gBuild}}">Clips</button><button class="{{cPrev}}" onclick="{{gPrev}}">Preview</button><button class="{{cEmbed}}" onclick="{{gEmbed}}">Get embed code</button></div></div>
+<div class="bar"><h2 style="font-size:22px">{{cur.name}} <span class="{{cur.statusCls}}" style="vertical-align:middle;margin-left:6px">{{cur.status}}</span></h2><div style="margin-left:auto;display:flex;gap:8px"><button class="{{cBuild}}" onclick="{{gBuild}}">Items</button><button class="{{cPrev}}" onclick="{{gPrev}}">Preview</button><button class="{{cEmbed}}" onclick="{{gEmbed}}">Get embed code</button></div></div>
 
 <sc-if value="{{isBuild}}">
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:18px"><div><label for="gn">Name</label><input id="gn" class="field" value="Watch: Grand Valley"></div><div><label for="gf">Who it's for</label><select id="gf" class="field"><option>Our website (visitgrandvalley.ca/watch)</option><option>All member businesses</option><option>One member: The Millrace Inn</option></select></div></div>
-<label>Fill it with</label><div class="chips" style="margin-bottom:18px"><span class="chip on">Video only</span><span class="chip on">Cleared for partners</span><span class="chip on">Newest first</span><button class="chip">+ Season</button><button class="chip">+ Place</button><span class="muted" style="font-size:13px;align-self:center">New matches get added on their own.</span></div>
-<div class="bar"><b>{{countLabel}}</b><span class="muted" style="font-size:14px">Tap to leave one out. Drag to reorder.</span><a class="btn sm" href="library.html" style="margin-left:auto">Add from Library</a></div>
-<div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(120px,1fr))">
-<sc-for list="{{photos}}" as="p"><div class="{{p.cls}}" style="opacity:{{p.op}}"><div class="im" onclick="{{p.toggle}}" style="cursor:pointer;aspect-ratio:9/14"><img data-src="{{p.src}}" alt="{{p.alt}}"><span class="play" aria-hidden="true" style="width:34px;height:34px"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12-7.5z"/></svg></span><span class="src-tag">{{p.srcName}} · {{p.len}}</span><span class="cb"><sc-if value="{{p.on}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></sc-if></span></div><div class="cap"><span>{{p.credit}}</span></div></div></sc-for>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:18px"><div><label for="gn">Name</label><input id="gn" class="field" value="{{cur.name}}"></div><div><label for="gf">Who it's for</label><input id="gf" class="field" value="{{cur.forWho}}"></div></div>
+<label>Fill it with</label><div class="chips" style="margin-bottom:18px"><sc-for list="{{cur.rules}}" as="r"><span class="chip on">{{r}}</span></sc-for><button class="chip">+ Season</button><button class="chip">+ Place</button><span class="muted" style="font-size:13px;align-self:center">New matches get added on their own.</span></div>
+<div class="bar"><b>{{countLabel}}</b><div class="chips"><button class="{{fAll}}" onclick="{{setAll}}">All</button><button class="{{fPhoto}}" onclick="{{setPhoto}}">Photos</button><button class="{{fVideo}}" onclick="{{setVideo}}">Clips</button></div><span class="muted" style="font-size:14px">Tap to leave one out.</span><a class="btn sm" href="library.html" style="margin-left:auto">Add from Library</a></div>
+<div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(140px,1fr))">
+<sc-for list="{{items}}" as="p"><div class="{{p.cls}}" style="opacity:{{p.op}}"><div class="im" onclick="{{p.toggle}}" style="cursor:pointer;aspect-ratio:{{p.ar}}"><img data-src="{{p.src}}" alt="{{p.alt}}"><sc-if value="{{p.isVideo}}"><span class="play" aria-hidden="true" style="width:34px;height:34px"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12-7.5z"/></svg></span><span class="src-tag">{{p.srcName}} · {{p.len}}</span></sc-if><span class="cb"><sc-if value="{{p.on}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></sc-if></span></div><div class="cap"><span>{{p.credit}}</span></div></div></sc-for>
 </div>
 </sc-if>
 
 <sc-if value="{{isPrev}}">
-<p class="muted" style="margin:0 0 16px;font-size:14px">How it looks at visitgrandvalley.ca/watch. Visitors swipe up through clips, like a little TV channel for the destination. Each clip plays from TikTok or Instagram with the creator's handle on it.</p>
+<sc-if value="{{cur.isVideo}}">
+<p class="muted" style="margin:0 0 16px;font-size:14px">How it looks at {{cur.url}}. Visitors swipe up through clips, like a little TV channel for the destination. Each clip plays from TikTok or Instagram with the creator's handle on it.</p>
 <div style="display:flex;gap:32px;flex-wrap:wrap;align-items:flex-start">
-<div class="phone">
-<div class="scr">
+<div class="phone"><div class="scr">
 <img data-src="{{first.src}}" alt="{{first.alt}}">
 <div class="topbar"><span>Visit Grand Valley</span><span style="opacity:.8;font-weight:600">Watch</span></div>
 <div class="pside"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.4-7 10-7 10z"/></svg></span><span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5V12M12 12V2.8M9.2 5.6L12 2.8l2.8 2.8M12 15.5c0-4.5-4-6-8.8-6M6 6.7L3.2 9.5 6 12.3M12 15.5c0-4.5 4-6 8.8-6M18 6.7l2.8 2.8L18 12.3"/></svg></span></div>
 <div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
 <div class="ov"><b>{{first.credit}} · {{first.srcName}}</b><span>{{first.alt}}</span><br><span style="opacity:.75">Shared with permission</span></div>
-</div>
-</div>
+</div></div>
 <div style="flex:1 1 320px;min-width:0">
 <b style="font-size:15px">Up next</b>
-<div class="strip" style="margin-top:10px">
-<sc-for list="{{chosen}}" as="p"><div class="ph"><div class="im" style="aspect-ratio:9/14"><img data-src="{{p.src}}" alt="{{p.alt}}"><span class="src-tag">{{p.len}}</span></div><div class="cap"><span style="font-size:12px">{{p.credit}}</span></div></div></sc-for>
-</div>
-<div class="card" style="padding:16px 18px;margin-top:18px;font-size:14px;line-height:1.5">
-<b>What the visitor gets</b><br>A full-screen feed of real moments, newest first, with the creator's name on every clip. Tap through to the original post. Works on the DMO site and on any member's site with the same embed code.
-</div>
-<div class="card" style="padding:16px 18px;margin-top:10px;font-size:14px;line-height:1.5;background:var(--sand)">
-<b>How the clips play</b><br>Each clip streams from TikTok or Instagram's own player, so it stays on their servers and keeps its views. The permission on file covers the DMO and members using it here and downloading it for their own channels.
-</div>
+<div class="strip" style="margin-top:10px"><sc-for list="{{chosen}}" as="p"><div class="ph"><div class="im" style="aspect-ratio:9/14"><img data-src="{{p.src}}" alt="{{p.alt}}"><span class="src-tag">{{p.len}}</span></div><div class="cap"><span style="font-size:12px">{{p.credit}}</span></div></div></sc-for></div>
+<div class="card" style="padding:16px 18px;margin-top:18px;font-size:14px;line-height:1.5"><b>What the visitor gets</b><br>A full-screen feed of real moments, newest first, with the creator's name on every clip. Tap through to the original post. Works on the DMO site and on any member's site with the same embed code.</div>
 </div>
 </div>
 </sc-if>
+<sc-if value="{{cur.isGrid}}">
+<p class="muted" style="margin:0 0 12px;font-size:14px">How it looks on {{cur.url}}.</p>
+<div class="card" style="overflow:hidden"><div style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:#F1EEE7;border-bottom:1px solid var(--line)"><span style="width:10px;height:10px;border-radius:999px;background:#D9D4C9"></span><span style="width:10px;height:10px;border-radius:999px;background:#D9D4C9"></span><span style="width:10px;height:10px;border-radius:999px;background:#D9D4C9"></span><span style="margin-left:10px;flex:1;background:#fff;border-radius:6px;padding:6px 12px;font-size:13px;color:var(--muted)">{{cur.url}}</span></div>
+<div style="padding:32px 36px 40px;font-family:Georgia,serif"><div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:24px"><img src="images/gv-logo.png" alt="Visit Grand Valley" style="height:50px"><span style="margin-left:auto;display:flex;gap:20px;font-family:'Figtree',sans-serif;font-size:14px;font-weight:600"><span>Things to do</span><span>Stay</span><span>Eat</span><span>Families</span></span></div>
+<h3 style="margin:0;font-size:30px;font-weight:400">{{cur.h}}</h3><p style="margin:8px 0 20px;font-size:16px;color:#4A453E;max-width:560px">Real visitors, real weekends. Shared with permission by the people who took them.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px"><sc-for list="{{chosen}}" as="p"><figure style="margin:0;position:relative;border-radius:6px;overflow:hidden;aspect-ratio:1/1"><img data-src="{{p.src}}" alt="{{p.alt}}" style="width:100%;height:100%;object-fit:cover;display:block"><sc-if value="{{p.isVideo}}"><span class="play" aria-hidden="true" style="width:34px;height:34px"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12-7.5z"/></svg></span></sc-if><figcaption style="position:absolute;left:0;right:0;bottom:0;padding:14px 8px 6px;background:linear-gradient(transparent,rgba(0,0,0,.55));color:#fff;font-family:'Figtree',sans-serif;font-size:12px;font-weight:600">{{p.credit}}</figcaption></figure></sc-for></div>
+<p style="margin:16px 0 0;font-family:'Figtree',sans-serif;font-size:12px;color:#8A8378">Photos shared with permission · Powered by ShareWhere</p></div></div>
+</sc-if>
+</sc-if>
 
 <sc-if value="{{isEmbed}}">
-<p style="margin:0 0 14px;font-size:15px;line-height:1.5">Paste this anywhere. It updates itself, shows credit on every photo, and drops a photo the minute its creator withdraws.</p>
-<div class="chips" style="margin-bottom:12px"><button class="chip on">Feed (swipe up)</button><button class="chip">Grid</button><button class="chip">Carousel</button></div>
+<p style="margin:0 0 14px;font-size:15px;line-height:1.5">Paste this anywhere. It updates itself, shows credit on every item, and drops anything the minute its creator withdraws.</p>
+<div class="chips" style="margin-bottom:12px"><sc-for list="{{layouts}}" as="l"><button class="{{l.cls}}">{{l.name}}</button></sc-for></div>
 <pre class="card" style="margin:0;padding:16px 18px;font-size:13px;line-height:1.6;white-space:pre-wrap;word-break:break-all">&lt;script src="https://sharewhere.co/embed.js"
-  data-gallery="vgv-watch" data-layout="feed"&gt;&lt;/script&gt;</pre>
+  data-gallery="{{cur.slug}}" data-layout="{{cur.layout}}"&gt;&lt;/script&gt;</pre>
 <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap"><button class="btn g">Copy code</button><a class="btn" href="partners.html">Email it to a partner</a></div>
-<p class="muted" style="font-size:14px;margin:18px 0 0">Every photo in here is cleared for partners, so any of your 24 active members can use this code too.</p>
+<p class="muted" style="font-size:14px;margin:18px 0 0">Everything in here is cleared for partners, so any of your 24 active members can use this code too.</p>
 </sc-if>
 </div>
 </div>
@@ -89,18 +87,43 @@
 </div>
 <script src="rt.js"></script>
 <script>
+const P=(f,alt,credit)=>({f,alt,credit,v:false});
+const V=(f,alt,credit,src,len)=>({f,alt,credit,v:true,src,len});
+const GALLERIES=[
+ {id:'watch',name:'Watch: Grand Valley',status:'Draft',url:'visitgrandvalley.ca/watch',forWho:'Our website (visitgrandvalley.ca/watch)',rules:['Video only','Cleared for partners','Newest first'],slug:'vgv-watch',layout:'feed',h:'Watch',
+  items:[V('flowerpot.jpg','Paddling past the sea stack','@paddleandpine','TikTok','0:21'),V('boardwalk.jpg','Drone pass over the boardwalk','@dronedan.ca','Reels','0:14'),V('selfie-lake.jpg','Group hike to the lookout','@lena.on.trails','TikTok','0:33'),V('tasting.jpg','Cider flight at Two Rivers','@sipwithsam','TikTok','0:18'),V('canoe.jpg','Morning paddle, Falls Gorge','@maya.outside','Reels','0:12'),V('apple-group.jpg','Apple picking day','@orchardhopper','TikTok','0:27'),V('market.jpg','Saturday market haul','@localbasket','Reels','0:09'),V('bikes.jpg','Rail trail ride','@spokesandsnacks','TikTok','0:40')]},
+ {id:'family',name:'Family friendly',status:'Draft',url:'visitgrandvalley.ca/families',forWho:'Our website (visitgrandvalley.ca/families)',rules:['Tag: Families','Cleared for partners'],slug:'vgv-family-friendly',layout:'grid',h:'Bring the kids. Bring the grandparents.',
+  items:[P('apple-group.jpg','Group apple picking','@orchardhopper'),P('strawberries.jpg','Kids picking strawberries','@berrybasket'),P('boulder.jpg','Two people by a giant boulder','@rockhoundrachel'),P('picnic-table.jpg','Friends at a picnic table','@trivia.tuesdays'),P('group-shore.jpg','Group on a rocky shore','@lena.on.trails'),P('deck.jpg','Muskoka chairs on a deck','@cottagehours'),V('apple-group.jpg','Apple picking day','@orchardhopper','TikTok','0:27'),P('market.jpg','Farm stand produce','@localbasket')]},
+ {id:'fall',name:'Fall colours',status:'Live on 4 sites',url:'visitgrandvalley.ca/fall',forWho:'Our website and all member businesses',rules:['Season: Fall','Cleared for partners','Newest first'],slug:'vgv-fall',layout:'masonry',h:'This is what October looks like here.',
+  items:[P('algonquin.jpg','Lake and forest at dusk','@maya.outside'),P('orchard.jpg','Apple orchard rows','@orchardhopper'),P('lookout.jpg','Lookout over a lake','@lena.on.trails'),V('selfie-lake.jpg','Group hike to the lookout','@lena.on.trails','TikTok','0:33'),P('tasting.jpg','Cider flight','@sipwithsam'),P('canoe.jpg','Red canoe at Falls Gorge','@maya.outside'),P('apple-group.jpg','Apple picking day','@orchardhopper'),V('tasting.jpg','Cider flight at Two Rivers','@sipwithsam','TikTok','0:18')]},
+ {id:'paddle',name:'Paddle season',status:'Live on 2 sites',url:'visitgrandvalley.ca/paddle',forWho:'Our website and Northbank Kayak Co.',rules:['Activity: Paddling','Cleared for partners'],slug:'vgv-paddle',layout:'grid',h:'Get on the water.',
+  items:[P('canoe.jpg','Two people paddling a red canoe','@maya.outside'),P('canoe-lake.jpg','Red canoe on a still lake','@maya.outside'),V('flowerpot.jpg','Paddling past the sea stack','@paddleandpine','TikTok','0:21'),P('flowerpot.jpg','Turquoise water by the sea stack','@paddleandpine'),P('marina.jpg','Marina with sailboats','@harbourlight'),V('canoe.jpg','Morning paddle, Falls Gorge','@maya.outside','Reels','0:12')]},
+ {id:'farms',name:'Farms and food',status:'Live on 6 sites',url:'visitgrandvalley.ca/eat',forWho:'Our website and 5 member businesses',rules:['Tag: Farms and food','Cleared for partners'],slug:'vgv-farms',layout:'grid',h:'Eat where it grows.',
+  items:[P('market.jpg','Farm stand with carrots and cucumbers','@localbasket'),P('tasting.jpg','Pouring a cider flight','@sipwithsam'),P('orchard.jpg','Apple orchard rows','@orchardhopper'),P('strawberries.jpg','Fresh strawberries','@berrybasket'),P('apple-group.jpg','Group apple picking','@orchardhopper'),V('market.jpg','Saturday market haul','@localbasket','Reels','0:09'),P('picnic-table.jpg','Friends at a picnic table','@trivia.tuesdays')]},
+ {id:'home',name:'Homepage',status:'Live',url:'visitgrandvalley.ca',forWho:'Our website',rules:['Cleared for partners','Newest first','Staff picks'],slug:'vgv-home',layout:'carousel',h:'Welcome to Grand Valley.',
+  items:[P('river-town.jpg','Stone buildings on the river','@weekend.wanders'),P('boardwalk.jpg','Boardwalk from above','@dronedan.ca'),P('deck.jpg','Muskoka chairs on a deck','@cottagehours'),V('boardwalk.jpg','Drone pass over the boardwalk','@dronedan.ca','Reels','0:14'),P('algonquin.jpg','Lake and forest at dusk','@maya.outside'),P('selfie-lake.jpg','Group selfie at a lookout','@lena.on.trails'),P('lupins.jpg','Field of lupins','@wildflowerweekend'),P('canoe.jpg','Red canoe at Falls Gorge','@maya.outside')]}
+];
 class Component extends DCLogic {
-  constructor(p){super(p);this.state={view:'build',off:{}};}
+  constructor(p){super(p);this.state={gal:'watch',view:'build',filter:'all',off:{}};}
   renderVals(){
-    const v=this.state.view,off=this.state.off;
-    const rows=[['flowerpot.jpg','Paddling past the sea stack','@paddleandpine','TikTok','0:21'],['boardwalk.jpg','Drone pass over the boardwalk','@dronedan.ca','Reels','0:14'],['selfie-lake.jpg','Group hike to the lookout','@lena.on.trails','TikTok','0:33'],['tasting.jpg','Cider flight at Two Rivers','@sipwithsam','TikTok','0:18'],['canoe.jpg','Morning paddle, Falls Gorge','@maya.outside','Reels','0:12'],['apple-group.jpg','Apple picking day','@orchardhopper','TikTok','0:27'],['market.jpg','Saturday market haul','@localbasket','Reels','0:09'],['bikes.jpg','Rail trail ride','@spokesandsnacks','TikTok','0:40']];
-    const photos=rows.map((r,i)=>{const on=!off[i];return{src:'images/'+r[0],alt:r[1],credit:r[2],srcName:r[3],len:r[4],on,cls:on?'ph is-sel':'ph',op:on?'1':'0.45',toggle:()=>this.setState({off:Object.assign({},off,{[i]:on})})};});
-    const chosen=photos.filter(p=>p.on);const first=chosen[0]||photos[0];
-    const go=k=>()=>this.setState({view:k}),cls=k=>v===k?'btn sm g':'btn sm';
-    return{photos,chosen,first,countLabel:chosen.length+' clips',isBuild:v==='build',isPrev:v==='prev',isEmbed:v==='embed',cBuild:cls('build'),cPrev:cls('prev'),cEmbed:cls('embed'),gBuild:go('build'),gPrev:go('prev'),gEmbed:go('embed')};
+    const st=this.state,g=GALLERIES.find(x=>x.id===st.gal);
+    const vids=g.items.filter(i=>i.v).length,phs=g.items.length-vids;
+    const isVideo=phs===0,isGrid=!isVideo;
+    const galleries=GALLERIES.map(x=>{const nv=x.items.filter(i=>i.v).length,np=x.items.length-nv;return{name:x.name,sub:x.status+' · '+(np&&nv?np+' photos, '+nv+' clips':np?np+' photos':nv+' clips'),isVideo:np===0,isMixed:np>0&&nv>0,bg:x.id===st.gal?'var(--sand)':'transparent',pick:()=>this.setState({gal:x.id,view:'build',filter:'all',off:{}})};});
+    const all=g.items.map((it,i)=>{const on=!(st.off[i]);return{src:'images/'+it.f,alt:it.alt,credit:it.credit,isVideo:it.v,srcName:it.src||'',len:it.len||'',ar:'1/1',on,cls:on?'ph is-sel':'ph',op:on?'1':'0.45',toggle:()=>this.setState({off:Object.assign({},st.off,{[i]:on})})};});
+    const items=all.filter(p=>st.filter==='all'||(st.filter==='video'?p.isVideo:!p.isVideo));
+    const chosen=all.filter(p=>p.on);const first=chosen[0]||all[0];
+    const nOn=chosen.filter(p=>!p.isVideo).length,vOn=chosen.filter(p=>p.isVideo).length;
+    const countLabel=(nOn&&vOn?nOn+' photos, '+vOn+' clips':nOn?nOn+' photos':vOn+' clips');
+    const go=k=>()=>this.setState({view:k}),cls=k=>st.view===k?'btn sm g':'btn sm',fc=k=>st.filter===k?'chip on':'chip';
+    const LAY=isVideo?['Feed (swipe up)','Grid','Carousel']:['Grid','Masonry','Carousel'];
+    const layouts=LAY.map((n,i)=>({name:n,cls:i===0?'chip on':'chip'}));
+    return{galleries,cur:{name:g.name,status:g.status,statusCls:g.status==='Draft'?'tag amber':'tag ok',url:g.url,forWho:g.forWho,rules:g.rules,slug:g.slug,layout:g.layout,h:g.h,isVideo,isGrid},
+      items,chosen,first,countLabel,layouts,
+      isBuild:st.view==='build',isPrev:st.view==='prev',isEmbed:st.view==='embed',cBuild:cls('build'),cPrev:cls('prev'),cEmbed:cls('embed'),gBuild:go('build'),gPrev:go('prev'),gEmbed:go('embed'),
+      fAll:fc('all'),fPhoto:fc('photo'),fVideo:fc('video'),setAll:()=>this.setState({filter:'all'}),setPhoto:()=>this.setState({filter:'photo'}),setVideo:()=>this.setState({filter:'video'})};
   }
 }
 </script>
-
 </body>
 </html>
