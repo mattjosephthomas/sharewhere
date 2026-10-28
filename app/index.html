@@ -13,7 +13,7 @@
 <div class="shell">
 <aside class="side">
 <a class="brand" href="index.html"><img src="images/sharewhere-icon.png" alt="">ShareWhere</a>
-<a class="nav on" href="index.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>Find<span class="n">12</span></a>
+<a class="nav on" href="index.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>Find<span class="n">13</span></a>
 <a class="nav " href="library.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Library<span class="n">23</span></a>
 <a class="nav " href="galleries.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="15" rx="2"/><path d="M3 8h18"/><path d="M10 12l-2 2 2 2M14 12l2 2-2 2"/></svg>Galleries</a>
 <a class="nav " href="partners.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 9.5L5.5 4h13l2 5.5"/><path d="M5 12v8h14v-8"/><path d="M10 20v-4.5h4V20"/></svg>Partners</a>
@@ -21,11 +21,11 @@
 <div class="dest"><img src="images/gv-logo.png" alt="Visit Grand Valley"><span class="muted">Visit Grand Valley</span></div>
 </aside>
 <main class="main"><div class="wrap">
-<div class="top"><div><h1>Find</h1><p>Posts from your destination since Monday. Pick the good ones and hit Ask.</p></div><div class="who"><span>JL</span>Jess L.</div></div>
+<div class="top"><div><h1>Find</h1><p>Instagram and TikTok posts from your destination since Monday. Pick the good ones and hit Ask.</p></div><div class="who"><span>JL</span>Jess L.</div></div>
 
 
 <div class="bar">
-<div class="chips"><button class="chip on">New <span style="opacity:.7;margin-left:6px">12</span></button><button class="chip">Asked, waiting <span style="opacity:.7;margin-left:6px">9</span></button><button class="chip">No reply 7+ days <span style="opacity:.7;margin-left:6px">5</span></button><button class="chip">Passed</button></div>
+<div class="chips"><button class="chip on">New <span style="opacity:.7;margin-left:6px">13</span></button><button class="chip">Asked, waiting <span style="opacity:.7;margin-left:6px">9</span></button><button class="chip">No reply 7+ days <span style="opacity:.7;margin-left:6px">5</span></button><button class="chip">Passed</button></div>
 <button class="btn g" style="margin-left:auto" onclick="{{askAll}}">{{askAllLabel}}</button>
 </div>
 
@@ -40,7 +40,7 @@
 </sc-for>
 </div>
 
-<p class="muted" style="margin:18px 0 0;font-size:14px;max-width:720px">Ask posts this comment from @visitgrandvalley: <em>"Love this shot! We'd like to share it on Visit Grand Valley's channels and with our local member businesses, always with credit to you. Reply #YesGrandValley to agree to the terms at sharewhere.co/t/vgv"</em> When they reply, the photo and its proof land in your Library. <a href="settings.html">Change the wording</a></p>
+<p class="muted" style="margin:18px 0 0;font-size:14px;max-width:720px">Ask posts this comment from @visitgrandvalley: <em>"Love this shot! We'd like to share it on Visit Grand Valley's channels and with our local member businesses, always with credit to you. Reply #YesGrandValley to agree to the terms at sharewhere.co/t/vgv"</em> When they reply, the photo and its proof land in your Library. On TikTok you paste the link and leave the comment yourself; the proof works the same way. <a href="settings.html">Change the wording</a></p>
 </div></main>
 </div>
 <script src="rt.js"></script>
@@ -50,22 +50,23 @@ class Component extends DCLogic {
   renderVals(){
     const asked=this.state.asked;
     const rows=[
+      ['flowerpot.jpg','Paddling past the sea stack','@paddleandpine','1h','TikTok · #grandvalley','POV: you found the clearest water in Ontario','Summer · Paddling · Video','Northbank Kayak Co.'],
       ['selfie-lake.jpg','Group selfie at a lakeside lookout','@lena.on.trails','2h','#grandvalley','Best crew, best views. Kettle Lake lookout did not disappoint','Summer · Hiking · Groups','Kettle Lake Tours'],
       ['apple-group.jpg','A big group apple picking','@orchardhopper','5h','Tagged at Hilltop Orchards','Honeycrisp season is officially here and we picked way too many','Fall · Farms and food','Hilltop Orchards'],
       ['lupins.jpg','Field of purple and pink lupins','@wildflowerweekend','Yesterday','#fallsgorge','The lupins along the gorge road are unreal right now','Summer · Scenic',''],
       ['picnic-table.jpg','Friends around a picnic table','@trivia.tuesdays','Yesterday','Mill Street','Post-hike pints on the patio. Earned it','Fall · Food and drink · Groups','Mill Street Brewhouse'],
       ['boulder.jpg','Two hikers beside a huge boulder','@rockhoundrachel','2 days','#grandvalley','Found the big rock on the Ridge Trail. It is bigger than it looks','Fall · Hiking',''],
-      ['flowerpot.jpg','Turquoise water beside a sea stack','@paddleandpine','2 days','Tagged @visitgrandvalley','Water this colour should be illegal','Summer · Paddling · Lakeshore','Northbank Kayak Co.'],
+      ['group-shore.jpg','Group on a rocky shore','@paddleandpine','2 days','Tagged @visitgrandvalley','Shore lunch stop, Flowerpot Bay','Summer · Paddling · Lakeshore','Northbank Kayak Co.'],
       ['market.jpg','Farm stand with carrots and cucumbers','@localbasket','3 days','Tagged at Lantern Farm Market','Saturday haul. The carrots still had dirt on them, which is how you know','Fall · Farms and food','Lantern Farm Market'],
       ['river-town.jpg','Stone buildings on the river with red flowers','@weekend.wanders','3 days','Mill Street','Mill Street at golden hour. No notes','Summer · Main streets',''],
-      ['boardwalk.jpg','Aerial view of a lakeside boardwalk','@dronedan.ca','4 days','#grandvalley','Lakeshore boardwalk from above, first light','Summer · Scenic · Lakeshore',''],
+      ['boardwalk.jpg','Drone pass over the boardwalk','@dronedan.ca','4 days','TikTok · tagged Grand Valley','Lakeshore boardwalk from above, first light','Summer · Scenic · Video',''],
       ['tasting.jpg','Pouring a cider tasting flight','@sipwithsam','4 days','Tagged at Two Rivers Cidery','Flight night. The dry hopped one wins','Fall · Food and drink','Two Rivers Cidery'],
       ['marina.jpg','Marina with sailboats','@harbourlight','5 days','#grandvalley','Last sail of the season out of Port Grand','Fall · Lakeshore','Port Grand Marina'],
       ['lookout.jpg','Lookout over a lake and forest','@lena.on.trails','5 days','#fallsgorge','Ridge Trail lookout. Worth every step','Fall · Hiking · Scenic','']
     ];
     const posts=rows.map((r,i)=>{const done=!!asked[i];return{src:'images/'+r[0],alt:r[1],handle:r[2],when:r[3],source:r[4],caption:r[5],tags:r[6],match:r[7],hasMatch:!!r[7],label:done?'Asked ✓':'Ask',cls:done?'btn sm':'btn sm g',ask:()=>this.setState({asked:Object.assign({},asked,{[i]:!done})})};});
     const n=Object.keys(asked).filter(k=>asked[k]).length;
-    return{posts,askAllLabel:n===rows.length?'All 12 asked ✓':'Ask all 12',askAll:()=>{const a={};rows.forEach((_,i)=>a[i]=true);this.setState({asked:a});}};
+    return{posts,askAllLabel:n===rows.length?'All 13 asked ✓':'Ask all 13',askAll:()=>{const a={};rows.forEach((_,i)=>a[i]=true);this.setState({asked:a});}};
   }
 }
 </script>
