@@ -41,7 +41,8 @@ section{scroll-margin-top:20px}
 .navlinks{display:flex;flex-wrap:wrap;align-items:center;gap:22px;font-weight:600}
 .navlinks a{color:var(--ink);text-decoration:none}.navlinks a:hover{text-decoration:underline}
 .navlinks .btn{min-height:44px;padding:0 20px;font-size:16px}
-.navlinks .navlogin{margin-left:6px}
+.btn-white{background:#fff;color:var(--ink);border:1.5px solid var(--line)}.btn-white:hover{background:var(--sand);color:var(--ink)}
+.navlinks a.btn-white,.navlinks a.btn-white:hover{text-decoration:none}
 .navlinks a.btn-green,.navlinks a.btn-green:hover{color:#fff;text-decoration:none}
 
 /* hero */
@@ -285,7 +286,7 @@ section{scroll-margin-top:84px}
       <a href="#pricing">Pricing</a>
       <a href="#switch">Switch from CrowdRiff</a>
       <a href="#book">Book a call</a>
-      <a class="navlogin" href="login.html">Log in</a>
+      <a class="btn btn-white navlogin" href="login.html">Log in</a>
       <a class="btn btn-green" href="#switch">Switch for free</a>
     </div>
   </nav>
