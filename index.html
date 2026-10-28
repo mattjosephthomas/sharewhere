@@ -56,9 +56,13 @@ section{scroll-margin-top:20px}
 .collage{flex:1 1 420px;min-width:0}
 .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 .polaroid{margin:0;background:#fff;padding:10px 10px 12px;border:1px solid #E7E2D6;border-radius:6px;box-shadow:0 10px 24px rgba(26,26,26,.10);display:flex;flex-direction:column;gap:10px}
-.polaroid img{width:100%;object-fit:cover;border-radius:3px}
+.polaroid img{width:100%;object-fit:cover;border-radius:3px;display:block}
 .polaroid figcaption,.cap{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px;font-weight:600}
 .ok{display:inline-flex;align-items:center;gap:4px;color:var(--green);font-weight:700;font-size:12px;white-space:nowrap}
+.to{display:inline-flex;align-items:center;gap:4px;color:var(--note);font-weight:700;font-size:12px;white-space:nowrap}
+.pv{position:relative}
+.pv .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:999px;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;padding-left:3px;box-sizing:border-box;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.pv .len{position:absolute;left:8px;bottom:8px;padding:3px 7px;border-radius:5px;background:rgba(26,26,26,.75);color:#fff;font-size:11px;font-weight:700}
 
 /* essay */
 .essay{max-width:720px;margin:0 auto;padding:96px 24px;display:flex;flex-direction:column;gap:22px;font-size:21px;line-height:1.6}
@@ -338,13 +342,13 @@ section{scroll-margin-top:84px}
   <div class="collage">
     <div class="grid2">
       <figure class="polaroid" style="transform:rotate(-2deg)"><img src="images/algonquin.jpg" alt="Fall colours in Algonquin Park" style="height:200px"><figcaption>Algonquin Park<span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Yes on file</span></figcaption></figure>
-      <figure class="polaroid" style="transform:rotate(1.5deg)"><img src="images/on-the-bus.jpg" alt="Passengers on the way to the park" style="height:160px"><figcaption>On the way there<span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Yes on file</span></figcaption></figure>
+      <figure class="polaroid" style="transform:rotate(1.5deg)"><div class="pv"><img src="app/images/flowerpot.jpg" alt="A visitor video of paddling past a sea stack" style="height:160px"><span class="play" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="#1A1A1A"><path d="M7 4.5v15l12-7.5z"/></svg></span><span class="len">TikTok · 0:21</span></div><figcaption>Flowerpot Bay<span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Yes on file</span></figcaption></figure>
       <figure class="polaroid" style="transform:rotate(2deg)"><img src="images/strawberries.jpg" alt="A handful of fresh strawberries" style="height:160px"><figcaption>Strawberry season<span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Yes on file</span></figcaption></figure>
-      <figure class="polaroid" style="transform:rotate(-1.5deg)"><img src="images/elora.jpg" alt="Riverside buildings in Elora" style="height:200px"><figcaption>Elora<span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Yes on file</span></figcaption></figure>
-      <figure class="polaroid" style="transform:rotate(-1deg)"><img src="images/apple-picking.jpg" alt="A Parkbus group apple picking at an orchard" style="height:170px"><figcaption>Apple picking<span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Yes on file</span></figcaption></figure>
-      <figure class="polaroid" style="transform:rotate(1deg)"><img src="images/campbellford.jpg" alt="A Parkbus group at the Big Twoonie in Campbellford" style="height:170px"><figcaption>Campbellford<span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Yes on file</span></figcaption></figure>
+      <figure class="polaroid" style="transform:rotate(-1.5deg)"><img src="images/elora.jpg" alt="Riverside buildings in Elora" style="height:200px"><figcaption>Elora<span class="to">→ The Millrace Inn</span></figcaption></figure>
+      <figure class="polaroid" style="transform:rotate(-1deg)"><img src="images/apple-picking.jpg" alt="A Parkbus group apple picking at an orchard" style="height:170px"><figcaption>Apple picking<span class="to">→ Hilltop Orchards</span></figcaption></figure>
+      <figure class="polaroid" style="transform:rotate(1deg)"><div class="pv"><img src="app/images/boardwalk.jpg" alt="A visitor video flying over a lakeside boardwalk" style="height:170px"><span class="play" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="#1A1A1A"><path d="M7 4.5v15l12-7.5z"/></svg></span><span class="len">Reels · 0:14</span></div><figcaption>The boardwalk<span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Yes on file</span></figcaption></figure>
     </div>
-    <p class="hand" style="font-size:24px;text-align:right;margin-top:18px">Every one of these has the creator’s yes on file ↑</p>
+    <p class="hand" style="font-size:24px;text-align:right;margin-top:18px">Photos and clips. Each with a yes on file. Shared with the businesses in them ↑</p>
   </div>
 </section>
 
