@@ -180,6 +180,29 @@ section{scroll-margin-top:20px}
 .checks li{display:flex;gap:10px;align-items:flex-start}
 .checks svg{flex:none;margin-top:4px}
 
+
+/* watch */
+.watch{display:flex;flex-wrap:wrap;gap:56px;align-items:center}
+.watch-copy{flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:18px}
+.watch-stage{flex:1 1 420px;min-width:0;display:flex;justify-content:center;align-items:flex-end;gap:18px;position:relative}
+.phone{width:280px;flex:none;background:var(--ink);border-radius:40px;padding:12px;box-shadow:14px 14px 0 rgba(26,26,26,.12)}
+.phone .scr{position:relative;border-radius:30px;overflow:hidden;aspect-ratio:9/19;background:#000}
+.phone .scr img{width:100%;height:100%;object-fit:cover;display:block}
+.phone .top{position:absolute;top:0;left:0;right:0;padding:16px 18px;display:flex;justify-content:space-between;color:#fff;font-size:13px;font-weight:700}
+.phone .ov{position:absolute;left:0;right:0;bottom:0;padding:70px 18px 24px;background:linear-gradient(transparent,rgba(0,0,0,.72));color:#fff}
+.phone .ov b{display:block;font-size:14px}.phone .ov span{font-size:12px;opacity:.9}
+.phone .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:999px;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;padding-left:4px;box-sizing:border-box}
+.phone .dots2{position:absolute;right:8px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:5px}
+.phone .dots2 i{width:4px;height:4px;border-radius:999px;background:rgba(255,255,255,.4)}.phone .dots2 i:first-child{background:#fff;height:16px}
+.clipstack{display:flex;flex-direction:column;gap:10px;flex:none;width:118px}
+.clip{position:relative;border-radius:10px;overflow:hidden;aspect-ratio:9/14;background:#E8E4DB;border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink)}
+.clip img{width:100%;height:100%;object-fit:cover;display:block}
+.clip span{position:absolute;left:8px;bottom:8px;padding:3px 7px;border-radius:5px;background:rgba(26,26,26,.75);color:#fff;font-size:11px;font-weight:700}
+.watch-points{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;font-size:18px;color:var(--body)}
+.watch-points li{display:flex;gap:12px;align-items:flex-start}
+.watch-points .dot{flex:none;width:28px;height:28px;border-radius:999px;background:var(--hi);display:inline-flex;align-items:center;justify-content:center;margin-top:2px}
+@media (max-width:760px){.watch-stage{gap:12px}.phone{width:230px}.clipstack{width:92px}}
+
 /* switch */
 .switch-steps{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:20px}
 .switch-steps li{flex:1 1 220px;min-width:0;display:flex;gap:14px;align-items:flex-start;font-size:18px}
@@ -300,7 +323,7 @@ section{scroll-margin-top:84px}
   <div class="hero-copy">
     <p class="hand" style="font-size:28px">For DMOs, and everyone they market.</p>
     <h1 class="display">UGC for destinations. And <span class="hl">the businesses</span> that make them.</h1>
-    <p class="lede">Find the best photos of your place. Get permission. Use them everywhere. Then share them with the businesses who earned them.</p>
+    <p class="lede">Find the best photos and videos of your place. Get permission. Use them everywhere. Then share them with the businesses who earned them.</p>
     <div class="row">
       <a class="btn btn-green" href="#switch">Switch for free</a>
       <a class="btn btn-outline btn-avatar" href="#book"><img class="mini" src="images/matthew.jpg" alt="">Book a call with Matthew</a>
@@ -365,9 +388,9 @@ section{scroll-margin-top:84px}
       <h2 id="howh" class="display" style="font-size:clamp(32px,4vw,48px)">Four steps to become a DMO hero.</h2>
     </div>
     <ol class="steps">
-      <li class="step"><div class="step-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.4 15.4L21 21"/><path d="M7.8 8.6a3.4 3.4 0 0 1 2.7-1.6"/></svg></span><span class="n">1</span></div><h3>Find.</h3><p>We pull public posts tagged at your destination. AI sorts them by place, season and activity, so the good stuff rises to the top.</p></li>
+      <li class="step"><div class="step-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.4 15.4L21 21"/><path d="M7.8 8.6a3.4 3.4 0 0 1 2.7-1.6"/></svg></span><span class="n">1</span></div><h3>Find.</h3><p>We pull public posts tagged at your destination, from Instagram and TikTok. AI sorts them by place, season and activity, so the good stuff rises to the top.</p></li>
       <li class="step"><div class="step-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.2 7.5L3 21l2-5.6A8.4 8.4 0 1 1 21 11.5z"/><path d="M9.6 9a2.6 2.6 0 0 1 5 .9c0 1.7-2.6 2.3-2.6 3.6"/><path d="M12 16.6h.01"/></svg></span><span class="n">2</span></div><h3>Ask.</h3><p>One click sends a friendly permission request. The creator replies yes. We keep the record: who agreed, when, and to what.</p></li>
-      <li class="step"><div class="step-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M7.5 12.4l3 3 6-6.2"/></svg></span><span class="n">3</span></div><h3>Use.</h3><p>Drop galleries on your website. Download for social, print and ads. Every photo carries its creator’s credit.</p></li>
+      <li class="step"><div class="step-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M7.5 12.4l3 3 6-6.2"/></svg></span><span class="n">3</span></div><h3>Use.</h3><p>Drop galleries on your website. Build a feed of visitor videos. Download for social, print and ads. Every photo carries its creator’s credit.</p></li>
       <li class="step star"><div class="step-top"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5V12"/><path d="M12 12V2.8"/><path d="M9.2 5.6L12 2.8l2.8 2.8"/><path d="M12 15.5c0-4.5-4-6-8.8-6"/><path d="M6 6.7L3.2 9.5 6 12.3"/><path d="M12 15.5c0-4.5 4-6 8.8-6"/><path d="M18 6.7l2.8 2.8L18 12.3"/></svg></span><span class="n">4</span></div><h3>Share.</h3><p>The permission covers your member businesses too. The inn gets the photos of the inn. The outfitter gets the paddlers. The bakery gets the croissant someone couldn’t stop photographing. Each one gets a gallery for its own website, too.</p></li>
     </ol>
   </div>
@@ -436,6 +459,37 @@ section{scroll-margin-top:84px}
   </div>
 </section>
 
+<section class="band" aria-labelledby="watchh">
+  <div class="wrap pad watch">
+    <div class="watch-copy">
+      <p class="hand" style="font-size:26px">New: video, too.</p>
+      <h2 id="watchh" class="display" style="font-size:clamp(32px,4vw,46px)">Your website is the one place that doesn’t show what a trip there looks like.</h2>
+      <p style="margin:0;font-size:19px;color:var(--body)">Visitors post thousands of clips of your place every year. Each one lives on TikTok for a day and dies. Your site, meanwhile, has a photo of a lake and a “Plan your visit” button.</p>
+      <p style="margin:0;font-size:19px;color:var(--body)">ShareWhere asks for the clips the same way it asks for photos. Then it turns them into a <strong>Watch</strong> page: a swipeable feed of real visitor videos, newest first, with the creator’s name on every one. It lives on your site, and on any member’s site too.</p>
+      <ul class="watch-points">
+        <li><span class="dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span><strong>People trust it.</strong> A visitor’s shaky 20 seconds beats your drone reel. Everyone can tell which one is an ad.</span></li>
+        <li><span class="dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span><strong>It keeps itself fresh.</strong> New yeses land in the feed on their own. Your site stops looking like last summer.</span></li>
+        <li><span class="dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span><strong>It costs you nothing to make.</strong> No shoot, no editor, no agency. Just the ask.</span></li>
+      </ul>
+      <p class="hand" style="font-size:24px">The inn gets the clips of the inn, too. ↓</p>
+    </div>
+    <div class="watch-stage" role="img" aria-label="A phone showing a swipeable feed of visitor videos on a destination’s website, with more clips stacked beside it">
+      <div class="phone"><div class="scr">
+        <img src="app/images/flowerpot.jpg" alt="">
+        <div class="top"><span>visitgrandvalley.ca/watch</span></div>
+        <span class="play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="#1A1A1A"><path d="M7 4.5v15l12-7.5z"/></svg></span>
+        <div class="dots2"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="ov"><b>@paddleandpine · TikTok</b><span>POV: you found the clearest water in Ontario</span><br><span style="opacity:.7">Shared with permission</span></div>
+      </div></div>
+      <div class="clipstack">
+        <div class="clip"><img src="app/images/boardwalk.jpg" alt=""><span>0:14</span></div>
+        <div class="clip"><img src="app/images/selfie-lake.jpg" alt=""><span>0:33</span></div>
+        <div class="clip"><img src="app/images/tasting.jpg" alt=""><span>0:18</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="pricing" class="pricing" aria-labelledby="priceh">
   <div class="wrap pad flex" style="gap:48px;align-items:center">
     <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:16px">
@@ -476,6 +530,7 @@ section{scroll-margin-top:84px}
     <h2 id="faqh" class="display" style="font-size:clamp(30px,3.6vw,42px)">Questions people ask</h2>
     <div class="flex" style="gap:32px 48px">
       <div class="faq"><h3>Is it legal to use photos from Instagram?</h3><p>Only with permission. That’s the whole point. Every photo in ShareWhere has the creator’s yes on file.</p></div>
+      <div class="faq"><h3>Does it do TikTok?</h3><p>Yes. Photos and clips from Instagram and TikTok. On TikTok the ask is a comment you post yourself; we keep the proof the same way.</p></div>
       <div class="faq"><h3>What do creators get?</h3><p>Credit and a link, every time their photo is used, by you or by a business.</p></div>
       <div class="faq"><h3>Why is it so cheap?</h3><p>It isn’t cheap. The other way is expensive. Running this doesn’t cost $10,000 a year, so we don’t charge it.</p></div>
       <div class="faq"><h3>Who’s behind this?</h3><p>People who have worked in Canadian tourism for more than a decade, and got tired of watching good marketing money go to software instead of places.</p></div>
