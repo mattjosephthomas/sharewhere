@@ -2,162 +2,61 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>ShareWhere · Library</title>
+<title>Library · ShareWhere</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <link rel="icon" href="images/sharewhere-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app.css">
 </head>
 <body>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
-<style>
-body{margin:0;background:#F6F3EA;font-family:'Figtree',system-ui,sans-serif;color:#1F1F1F}
-a{color:#1F6B4A}a:hover{color:#134531}
-.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;border:0;background:transparent;color:#2B2B2B;cursor:pointer}
-.icon-btn:hover{background:#F1EEE7}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 18px;border-radius:8px;border:1px solid #D9D4C9;background:#fff;color:#1F1F1F;font:600 15px/1 'Figtree',sans-serif;text-decoration:none;cursor:pointer;white-space:nowrap;box-sizing:border-box}
-.btn:hover{background:#FBFAF7;color:#1F1F1F}
-.btn-primary,.btn-primary:hover,.side a.btn-primary,.side a.btn-primary:hover{background:#1F6B4A;border-color:#1F6B4A;color:#fff}
-.side a{display:flex;align-items:center;gap:12px;min-height:44px;color:#4A453E;text-decoration:none;font-size:16px;font-weight:500}
-.side a:hover{color:#1F1F1F}
-.count{margin-left:auto;min-width:26px;height:26px;padding:0 6px;box-sizing:border-box;border-radius:5px;background:#EFECE5;display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:#2B2B2B}
-.count-on{background:#1F6B4A;color:#fff}
-.tagchip{display:inline-flex;align-items:center;min-height:30px;padding:0 12px;border-radius:999px;border:0;background:#E8F0EA;font:600 14px 'Figtree',sans-serif;color:#1F3D2E;cursor:pointer}
-.tagchip-on{background:#FFE45C;color:#1A1A1A}
-.badge{display:inline-flex;align-items:center;gap:4px;padding:4px 8px;border-radius:5px;font:700 12px/1.2 'Figtree',sans-serif}
-.mini{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;border:0;background:transparent;color:#2B2B2B;cursor:pointer}
-.mini:hover{background:#F1EEE7}
-.muted{color:#655F55}
-</style>
-<div style="min-height: 100vh; background: #F6F3EA; display: flex; flex-direction: column">
-
-<header style="background: #ffffff; border-bottom: 1px solid #E3DFD6">
-<div style="padding: 10px 20px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap">
-<a href="index.html" style="display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 10px; border-radius: 8px; color: #1F1F1F; text-decoration: none; font-weight: 600; font-size: 15px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Home</a>
-<span style="width: 1px; height: 20px; background: #D9D4C9"></span>
-<a href="index.html" style="display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 10px; margin-left: -10px; border-radius: 8px; color: #1F1F1F; text-decoration: none; font-weight: 600; font-size: 15px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Home</a>
-<span style="width: 1px; height: 20px; background: #D9D4C9"></span>
-<span style="width: 26px; height: 26px; border-radius: 999px; background: #1F6B4A; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 10px">JL</span>
-<span style="width: 1px; height: 20px; background: #D9D4C9"></span>
-<a href="index.html" style="color: #1F1F1F; text-decoration: none; font-weight: 600; font-size: 15px">Visit Grand Valley</a>
-<span style="width: 1px; height: 20px; background: #D9D4C9"></span>
-<button class="icon-btn" style="width: auto; padding: 0 8px; gap: 6px; font: 500 15px 'Figtree',sans-serif">Library <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
-<div style="margin-left: auto; display: flex; align-items: center; gap: 2px">
-<button class="icon-btn" aria-label="Help"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14"/><path d="M12 17.5v.01"/></svg></button>
-<button class="icon-btn" aria-label="Search"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
-<img src="images/sharewhere-icon.png" alt="ShareWhere" style="height: 26px; width: auto; display: block; margin-left: 12px">
-</div>
-</div>
-</header>
-
-<div style="display: flex; flex-wrap: wrap; flex: 1">
-
-<aside class="side" style="flex: 1 1 280px; max-width: 100%; box-sizing: border-box; padding: 56px 40px 40px; border-right: 1px solid #E3DFD6; background: #FBFAF7">
-<span style="width: 34px; height: 34px; border-radius: 8px; background: #1F6B4A; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="10" r="1.8"/><path d="M21 16l-5-5-9 8"/></svg></span>
-<h1 style="margin: 18px 0 0; font-size: 38px; font-weight: 700; color: #1F6B4A; letter-spacing: -0.02em">Library</h1>
-<p style="margin: 12px 0 0; font-size: 16px; line-height: 1.5; color: #4A453E">Every photo you have a yes for, with the proof attached. Tag them, match them to members, and drop them into galleries.</p>
-<a class="btn btn-primary" href="find.html" style="width: 100%; margin-top: 28px; display: flex">Find more photos…</a>
-<nav aria-label="Library views" style="margin-top: 28px">
-<a href="library.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F6B4A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg>New this week<span class="count">23</span></a>
-<div style="border-top: 1px solid #E3DFD6; margin: 10px 0"></div>
-<a href="library.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17v.01"/></svg>Needs tags<span class="count">41</span></a>
-<a href="library.html" style="color: #1F1F1F; font-weight: 700"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F1F1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="10" r="1.8"/><path d="M21 16l-5-5-9 8"/></svg>All photos<span class="count count-on">1,486</span></a>
-<a href="library.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 9.5L5.5 4h13l2 5.5"/><path d="M5 12v8h14v-8"/></svg>Cleared for partners<span class="count">1,368</span></a>
-<a href="library.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>DMO use only<span class="count">118</span></a>
-<a href="library.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M6 6l12 12"/></svg>Withdrawn<span class="count">6</span></a>
-<div style="border-top: 1px solid #E3DFD6; margin: 10px 0"></div>
-<a href="library.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 17v3h16v-3"/></svg>Imported from CrowdRiff<span class="count">1,240</span></a>
-</nav>
+<div class="shell">
+<aside class="side">
+<a class="brand" href="index.html"><img src="images/sharewhere-icon.png" alt="">ShareWhere</a>
+<a class="nav " href="index.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>Find<span class="n">12</span></a>
+<a class="nav on" href="library.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Library<span class="n">23</span></a>
+<a class="nav " href="galleries.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="15" rx="2"/><path d="M3 8h18"/><path d="M10 12l-2 2 2 2M14 12l2 2-2 2"/></svg>Galleries</a>
+<a class="nav " href="partners.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 9.5L5.5 4h13l2 5.5"/><path d="M5 12v8h14v-8"/><path d="M10 20v-4.5h4V20"/></svg>Partners</a>
+<a class="nav " href="settings.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></svg>Settings</a>
+<div class="dest"><img src="images/gv-logo.png" alt="Visit Grand Valley"><span class="muted">Visit Grand Valley</span></div>
 </aside>
+<main class="main"><div class="wrap">
+<div class="top"><div><h1>Library</h1><p>1,486 photos with a yes on file · 23 new this week</p></div><div class="who"><span>JL</span>Jess L.</div></div>
 
-<main style="flex: 999 1 560px; min-width: 0; padding: 48px 56px 80px; box-sizing: border-box">
-<div style="max-width: 1040px">
-<div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding-bottom: 22px; border-bottom: 1px solid #DDD8CD">
-<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F1F1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="10" r="1.8"/><path d="M21 16l-5-5-9 8"/></svg>
-<h2 style="margin: 0; font-size: 26px; font-weight: 700">All photos</h2>
-<button class="btn" style="margin-left: auto">Export permission log</button>
+<div class="bar">
+<div class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A8378" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input placeholder="Search photos, places or creators" aria-label="Search photos"></div>
+<div class="chips"><button class="chip on">All</button><button class="chip">Summer</button><button class="chip">Fall</button><button class="chip">Paddling</button><button class="chip">Farms and food</button><button class="chip">Main streets</button><button class="chip">Families</button></div>
 </div>
-<p style="margin: 22px 0 0; font-size: 16px" class="muted">Green means anyone on your account and your member businesses can use it. Amber means only your team can, until the creator re-confirms.</p>
+<div class="chips" style="margin:-6px 0 18px"><button class="chip" style="min-height:34px;font-size:13px">Cleared for partners <span style="opacity:.7;margin-left:6px">1,368</span></button><button class="chip" style="min-height:34px;font-size:13px">DMO only <span style="opacity:.7;margin-left:6px">118</span></button><button class="chip" style="min-height:34px;font-size:13px">Withdrawn <span style="opacity:.7;margin-left:6px">6</span></button><button class="chip" style="min-height:34px;font-size:13px">Needs tags <span style="opacity:.7;margin-left:6px">41</span></button></div>
 
-<div style="display: flex; align-items: center; gap: 14px; margin-top: 24px; padding-bottom: 20px; border-bottom: 1px solid #DDD8CD">
-<label for="q" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Search photos</label>
-<div style="flex: 1; position: relative">
-<input id="q" placeholder="Search by place, creator, tag or business…" style="width: 100%; box-sizing: border-box; height: 44px; border: 1px solid #D9D4C9; border-radius: 8px; padding: 0 40px 0 14px; font: 500 15px 'Figtree',sans-serif; background: #fff">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A8378" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="position: absolute; right: 14px; top: 13px"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
-</div>
-<span style="border-left: 1px solid #D9D4C9; padding-left: 14px; font-weight: 600; font-size: 15px; white-space: nowrap">1,486 items</span>
-</div>
+<sc-if value="{{hasSel}}">
+<div class="sel">{{selLabel}}<span style="margin-left:auto;display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm g"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>Download</button><a class="btn sm" href="galleries.html">Add to gallery</a><button class="btn sm">Copy credits</button></span></div>
+</sc-if>
 
-<div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px">
-<button class="tagchip tagchip-on">Fall</button>
-<button class="tagchip">Summer</button>
-<button class="tagchip">Winter</button>
-<button class="tagchip tagchip-on">Paddling</button>
-<button class="tagchip">Hiking</button>
-<button class="tagchip">Farms and food</button>
-<button class="tagchip">Main streets</button>
-<button class="tagchip">Lodging</button>
-<button class="tagchip">Falls Gorge</button>
-<button class="tagchip">Mill Street</button>
-<button class="tagchip">Lakeshore</button>
-</div>
-
-<div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 20px; background: #E3F1E9; color: #14532D; border: 1px solid #CFE3D6; border-radius: 10px; padding: 8px 8px 8px 18px">
-<strong style="font-size: 15px">3 selected</strong>
-<span style="margin-left: auto; display: flex; gap: 6px; flex-wrap: wrap">
-<button class="btn" style="min-height: 40px">Add to gallery</button>
-<button class="btn" style="min-height: 40px">Match to a member</button>
-<button class="btn" style="min-height: 40px">Download</button>
-</span>
-</div>
-
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 22px; margin-top: 22px">
+<div class="grid">
 <sc-for list="{{photos}}" as="p">
-<div>
-<a href="photo.html" style="display: block; position: relative; border-radius: 10px; overflow: hidden; aspect-ratio: 1 / 1; background: #E8E4DB; box-shadow: {{p.ring}}">
-<img data-src="{{p.src}}" alt="{{p.alt}}" style="width: 100%; height: 100%; object-fit: cover; display: block">
-<span class="badge" style="position: absolute; top: 10px; left: 10px; background: {{p.bBg}}; color: {{p.bFg}}">{{p.status}}</span>
-<span style="position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 10px 8px; background: linear-gradient(transparent, rgba(0,0,0,.6)); color: #fff; font-size: 13px; font-weight: 600">{{p.credit}}</span>
-</a>
-<div style="display: flex; align-items: center; gap: 4px; margin-top: 6px">
-<div style="min-width: 0"><div style="font-size: 15px; font-weight: 700">{{p.place}}</div><div class="muted" style="font-size: 13px">{{p.tags}}</div></div>
-<span style="margin-left: auto; display: flex">
-<a class="mini" href="photo.html" aria-label="Permission record"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M10 14.5l2 2 4-4.5"/></svg></a>
-<button class="mini" aria-label="Download"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg></button>
-</span>
-</div>
+<div class="{{p.cls}}">
+<div class="im" onclick="{{p.toggle}}" style="cursor:pointer"><img data-src="{{p.src}}" alt="{{p.alt}}"><span class="cb"><sc-if value="{{p.on}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></sc-if></span><span class="{{p.pillCls}}">{{p.status}}</span></div>
+<a class="cap" href="photo.html" style="text-decoration:none;color:inherit"><b>{{p.credit}}</b><span>{{p.place}}</span></a>
 </div>
 </sc-for>
 </div>
-</div>
-</main>
-</div>
+</div></main>
 </div>
 <script src="rt.js"></script>
 <script>
 class Component extends DCLogic {
-  renderVals() {
-    const G = { s: 'Partners ✓', bg: '#E3F1E9', fg: '#14532D' };
-    const A = { s: 'DMO only', bg: '#FFF1D6', fg: '#7A4100' };
-    const sel = '0 0 0 3px #1F6B4A';
-    const rows = [
-      ['canoe.jpg', 'Two people paddling a red canoe', '@maya.outside', 'Falls Gorge', 'Fall · Paddling', G, sel],
-      ['canoe-lake.jpg', 'Red canoe on a still lake', '@maya.outside', 'Falls Gorge', 'Fall · Paddling', G, sel],
-      ['algonquin.jpg', 'Lake and forest at dusk', '@maya.outside', 'Kettle Lake', 'Fall · Lakeshore', G, sel],
-      ['tasting.jpg', 'Pouring a cider tasting flight', '@sipwithsam', 'Two Rivers Cidery', 'Fall · Farms and food', G, ''],
-      ['orchard.jpg', 'Apple orchard rows heavy with fruit', '@orchardhopper', 'Hilltop Orchards', 'Fall · Farms and food', G, ''],
-      ['river-town.jpg', 'Stone buildings over the river with red flowers', '@weekend.wanders', 'Mill Street', 'Summer · Main streets', A, ''],
-      ['market.jpg', 'Farm stand with carrots and cucumbers', '@localbasket', 'Lantern Farm Market', 'Summer · Farms and food', G, ''],
-      ['deck.jpg', 'Muskoka chairs on a wooden deck', '@cottagehours', 'The Millrace Inn', 'Summer · Lodging', G, ''],
-      ['bikes.jpg', 'Group with bikes at a trailhead', '@spokesandsnacks', 'Rail Trail', 'Summer · Cycling', A, ''],
-      ['boardwalk.jpg', 'Aerial view of a shoreline boardwalk', '@dronedan.ca', 'Lakeshore Boardwalk', 'Summer · Hiking', G, ''],
-      ['apple-group.jpg', 'Big group apple picking', '@orchardhopper', 'Hilltop Orchards', 'Fall · Farms and food', G, ''],
-      ['marina.jpg', 'Marina with sailboats', '@harbourlight', 'Port Grand Marina', 'Summer · Lakeshore', A, '']
-    ];
-    return {
-      photos: rows.map((r) => ({ src: 'images/' + r[0], alt: r[1], credit: r[2], place: r[3], tags: r[4], status: r[5].s, bBg: r[5].bg, bFg: r[5].fg, ring: r[6] || 'none' }))
-    };
+  constructor(p){super(p);this.state={sel:{0:true,1:true}};}
+  renderVals(){
+    const sel=this.state.sel;
+    const G=['✓ Cleared','pill ok'],A=['DMO only','pill amber'];
+    const rows=[['canoe.jpg','Two people paddling a red canoe','@maya.outside','Falls Gorge',G],['canoe-lake.jpg','Red canoe on a still lake','@maya.outside','Falls Gorge',G],['algonquin.jpg','Lake and forest at dusk','@maya.outside','Kettle Lake',G],['tasting.jpg','Pouring a cider flight','@sipwithsam','Two Rivers Cidery',G],['orchard.jpg','Apple orchard rows','@orchardhopper','Hilltop Orchards',G],['river-town.jpg','Stone buildings over the river','@weekend.wanders','Mill Street',A],['market.jpg','Farm stand produce','@localbasket','Lantern Farm Market',G],['deck.jpg','Muskoka chairs on a deck','@cottagehours','The Millrace Inn',G],['bikes.jpg','Group with bikes','@spokesandsnacks','Rail Trail',A],['boardwalk.jpg','Boardwalk from above','@dronedan.ca','Lakeshore',G],['apple-group.jpg','Group apple picking','@orchardhopper','Hilltop Orchards',G],['marina.jpg','Marina with sailboats','@harbourlight','Port Grand',A]];
+    const photos=rows.map((r,i)=>{const on=!!sel[i];return{src:'images/'+r[0],alt:r[1],credit:r[2],place:r[3],status:r[4][0],pillCls:r[4][1],on,cls:on?'ph is-sel':'ph',toggle:()=>this.setState({sel:Object.assign({},sel,{[i]:!on})})};});
+    const n=Object.keys(sel).filter(k=>sel[k]).length;
+    return{photos,hasSel:n>0,selLabel:n+' selected'};
   }
 }
 </script>
+
 </body>
 </html>
