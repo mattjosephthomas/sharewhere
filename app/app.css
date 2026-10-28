@@ -60,3 +60,18 @@ label{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
 h2{font-size:18px;font-weight:700;margin:0}
 .sec{margin-top:34px}
 @media (max-width:760px){.side{flex:1 1 100%;flex-direction:row;flex-wrap:wrap;padding:12px}.brand{padding:4px 8px}.side .dest{display:none}.nav{min-height:40px;padding:0 10px}.main{padding:20px 16px 60px}}
+
+.play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:999px;background:rgba(255,255,255,.92);color:var(--ink);display:flex;align-items:center;justify-content:center;padding-left:3px;box-sizing:border-box}
+.src-tag{position:absolute;left:10px;bottom:10px;padding:4px 8px;border-radius:6px;background:rgba(26,26,26,.72);color:#fff;font-size:11px;font-weight:700}
+.phone{width:300px;margin:0 auto;background:#111;border-radius:36px;padding:14px;box-shadow:0 20px 50px rgba(26,26,26,.25)}
+.phone .scr{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:9/19.5;background:#000}
+.phone .scr img{width:100%;height:100%;object-fit:cover;display:block}
+.phone .ov{position:absolute;left:0;right:0;bottom:0;padding:60px 16px 22px;background:linear-gradient(transparent,rgba(0,0,0,.7));color:#fff;font-family:'Figtree',sans-serif}
+.phone .ov b{display:block;font-size:14px}.phone .ov span{font-size:12px;opacity:.9}
+.phone .pside{position:absolute;right:12px;bottom:90px;display:flex;flex-direction:column;gap:14px;align-items:center;color:#fff;font-size:11px;font-weight:700}
+.phone .pside span{width:38px;height:38px;border-radius:999px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center}
+.phone .topbar{position:absolute;top:0;left:0;right:0;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;color:#fff;font-family:'Figtree',sans-serif;font-size:13px;font-weight:700}
+.phone .dots{position:absolute;right:6px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:5px}
+.phone .dots i{width:4px;height:4px;border-radius:999px;background:rgba(255,255,255,.4)}.phone .dots i.on{background:#fff;height:14px}
+.strip{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px}
+.strip .ph{flex:0 0 120px}
