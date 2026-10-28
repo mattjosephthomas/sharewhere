@@ -2,57 +2,28 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>ShareWhere · Log in</title>
+<title>Log in · ShareWhere</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <link rel="icon" href="images/sharewhere-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app.css">
 </head>
 <body>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<style>
-body{margin:0;background:#F6F3EA;font-family:'Figtree',system-ui,sans-serif;color:#1F1F1F}
-a{color:#1F6B4A}a:hover{color:#134531}
-.field{width:100%;box-sizing:border-box;border:1px solid #D9D4C9;border-radius:8px;padding:13px 14px;font:500 16px/1.4 'Figtree',sans-serif;color:#1F1F1F;background:#fff}
-.field:focus{outline:2px solid #1F6B4A;outline-offset:1px}
-.lbl{display:block;font-weight:600;font-size:15px;margin-bottom:6px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border-radius:8px;border:1px solid #1F6B4A;background:#1F6B4A;color:#fff;font:600 16px/1 'Figtree',sans-serif;text-decoration:none;cursor:pointer;box-sizing:border-box}
-.btn:hover{background:#185A3D;color:#fff}
-.muted{color:#655F55}
-</style>
-<div style="min-height: 100vh; background: #F6F3EA; display: flex; flex-direction: column; align-items: center; padding: 56px 24px 80px; box-sizing: border-box">
-<a href="../" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #1F1F1F">
-<img src="images/sharewhere-icon.png" alt="" style="height: 34px; width: auto; display: block">
-<span style="font-weight: 700; font-size: 22px; letter-spacing: -0.02em">ShareWhere</span>
-</a>
-
-<main style="width: 100%; max-width: 440px; margin-top: 48px">
-<div style="background: #fff; border: 1px solid #E3DFD6; border-radius: 16px; padding: 36px 36px 32px; box-shadow: 0 8px 30px rgba(50,40,20,.06)">
-<h1 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.02em">Log in</h1>
-<p class="muted" style="margin: 8px 0 26px; font-size: 15px">For destination staff and member businesses.</p>
-<form style="display: flex; flex-direction: column; gap: 18px">
-<div><label class="lbl" for="email">Email</label><input id="email" class="field" type="email" placeholder="you@visitgrandvalley.ca" autocomplete="username"></div>
-<div><div style="display: flex; justify-content: space-between; align-items: baseline"><label class="lbl" for="pw">Password</label><a href="login.html" style="font-size: 14px; font-weight: 600">Forgot it?</a></div><input id="pw" class="field" type="password" placeholder="••••••••••" autocomplete="current-password"></div>
-<a class="btn" href="index.html" style="margin-top: 4px">Log in</a>
+<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:56px 20px 80px">
+<a class="brand" href="../"><img src="images/sharewhere-icon.png" alt="">ShareWhere</a>
+<main style="width:100%;max-width:420px;margin-top:36px">
+<div class="card" style="padding:32px">
+<h1 style="margin:0;font-size:26px;letter-spacing:-.02em">Log in</h1>
+<p class="muted" style="margin:6px 0 22px;font-size:15px">For destination staff and member businesses.</p>
+<form style="display:flex;flex-direction:column;gap:16px" onsubmit="return false">
+<div><label for="e">Email</label><input id="e" class="field" type="email" placeholder="you@yourdestination.ca" autocomplete="username"></div>
+<div><div style="display:flex;justify-content:space-between"><label for="p">Password</label><a href="mailto:matthew@poweredbytourism.com?subject=ShareWhere%20password" style="font-size:13px;font-weight:600">Forgot it?</a></div><input id="p" class="field" type="password" placeholder="••••••••••" autocomplete="current-password"></div>
+<a class="btn g" href="index.html">Log in</a>
 </form>
-<p class="muted" style="margin: 20px 0 0; font-size: 14px; text-align: center">We'll email you a code the first time you log in from a new device.</p>
 </div>
-
-<div style="margin-top: 22px; background: #FFE45C; border-radius: 16px; padding: 24px 28px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap">
-<div style="flex: 1 1 200px">
-<strong style="font-size: 17px">No account? Try it out.</strong>
-<p style="margin: 4px 0 0; font-size: 15px; line-height: 1.45; color: #3D3932">Poke around a sample destination. Nothing you do is saved.</p>
-</div>
-<a class="btn" href="index.html">Open the demo →</a>
-</div>
-
-<p class="muted" style="margin: 28px 0 0; font-size: 14px; text-align: center">Member business invited by your destination? Use the link in your email.<br>Questions: <a href="mailto:matthew@poweredbytourism.com">matthew@poweredbytourism.com</a></p>
-</main>
-</div>
-<script src="rt.js"></script>
-<script>
-class Component extends DCLogic {
-  renderVals() { return {}; }
-}
-</script>
+<div style="margin-top:18px;background:var(--hi);border-radius:14px;padding:20px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap"><div style="flex:1 1 180px"><b>No account? Try it out.</b><p style="margin:3px 0 0;font-size:14px;color:#3D3932">Poke around a sample destination. Nothing is saved.</p></div><a class="btn g" href="index.html">Open the demo →</a></div>
+<p class="muted" style="margin:24px 0 0;font-size:13px;text-align:center;line-height:1.6">Member business invited by your destination? Use the link in your email.<br>Questions: <a href="mailto:matthew@poweredbytourism.com">matthew@poweredbytourism.com</a></p>
+</main></div>
 </body>
 </html>
