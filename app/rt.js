@@ -19,7 +19,7 @@ function walk(root,ctx){
     if(!root.__tpl) root.__tpl=root.innerHTML;
     const list=get(ctx,key(root.getAttribute('list')))||[]; const as=root.getAttribute('as');
     root.innerHTML='';
-    list.forEach((item,i)=>{const d=document.createElement('div');d.style.display='contents';d.innerHTML=root.__tpl;root.appendChild(d);const c=Object.assign({},ctx,{[as]:item,$index:i});Array.from(d.childNodes).forEach(ch=>walk(ch,c));});
+    list.forEach((item,i)=>{const d=document.createElement('div');d.style.display='contents';d.className='rt-row';d.innerHTML=root.__tpl;root.appendChild(d);const c=Object.assign({},ctx,{[as]:item,$index:i});Array.from(d.childNodes).forEach(ch=>walk(ch,c));});
     return;
   }
   bindNode(root,ctx);
